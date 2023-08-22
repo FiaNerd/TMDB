@@ -1,0 +1,16 @@
+  # .editorconfig
+# top-most EditorConfig file
+root = true
+
+# Alla filtyper
+[*]
+indent_style = tab
+indent_size = 2
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Specifika filtyper
+[*.{js,jsx,ts,tsx}]
+max_line_length = 80
