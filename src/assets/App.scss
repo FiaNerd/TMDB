@@ -1,5 +1,11 @@
 @import "bootstrap/scss/bootstrap";
 
+body {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
 .logo {
 	width: 2em;
 	height: auto;
@@ -7,7 +13,7 @@
 
 .link-text-custom:hover,
 .link-text-custom:active {
-	color: #c6911e !important;
+	color: #cc9503 !important;
 }
 
 .navbar {
@@ -20,15 +26,15 @@
 .btn-outline-primary-custom {
 	color: #ededed;
 	background-color: transparent;
-	border-color: #c6911e;
+	border-color: #cc9503;
 	border-width: 0.2em;
 	font-weight: 400;
 }
 
 .btn-outline-primary-custom:hover {
 	color: #1c1c1c;
-	background-color: #c6911e;
-	border-color: #c6911e;
+	background-color: #cc9503;
+	border-color: #cc9503;
 	transition:
 		color 0.3s,
 		border-color 0.3s;
@@ -49,8 +55,8 @@
 .btn-outline-primary-custom:not(:disabled):not(.disabled).active,
 .show > .btn-outline-primary-custom.dropdown-toggle {
 	color: #1c1c1c;
-	background-color: #c6911e;
-	border-color: #c6911e;
+	background-color: #cc9503;
+	border-color: #cc9503;
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus,
@@ -61,7 +67,7 @@
 
 /* Hero Section */
 .hero-container {
-	background-image: url("../../public/images/MSHK.jpg");
+	background-image: url("../../images/MSHK.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -69,4 +75,51 @@
 .hero-mask {
 	background-color: rgba(0, 0, 0, 0.664);
 	max-height: 100%;
+}
+
+.btn-color-custom:hover {
+	background-color: #cc9503;
+}
+
+/* Footer */
+.footer {
+	background-color: #202020;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.footer-wrapper {
+	margin-bottom: 2em;
+	text-align: center;
+}
+
+.text-footer {
+	color: #ededed;
+	width: 24em;
+	text-align: center;
+	font-size: 1rem;
+	margin: 0 auto;
+	padding: 3em 2em 2em 2em;
+}
+
+.btn-footer {
+	background-color: #cc9503;
+	border: none;
+	border-radius: 0;
+	width: 12em;
+}
+
+.btn-footer:hover {
+	background-color: #cc9503;
+}
+
+.footer-copy {
+	display: flex;
+	justify-content: center;
+	.text-copy {
+		color: #ededed;
+		align-items: center;
+	}
 }

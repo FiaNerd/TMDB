@@ -12,7 +12,10 @@ const Hero = () => {
 							waiting for you.
 						</h4>
 
-						<Button variant="outline-light" className=" btn-lg mb-5">
+						<Button
+							variant="outline-light"
+							className="btn-color-custom btn-lg mb-5"
+						>
 							Checkout our movies
 						</Button>
 					</div>

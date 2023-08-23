@@ -8,15 +8,15 @@ import NavDropdown from "react-bootstrap/NavDropdown"
 const Header = () => {
 	return (
 		<>
-			<Navbar
-				className="navbar-sticky-custom"
-				expand="md"
-				bg="dark"
-				data-bs-theme="dark"
-			>
+			<Navbar className="navbar" expand="lg" bg="dark" data-bs-theme="dark">
 				<Container fluid>
 					<Navbar.Brand href="#">
-						<img src="logoTMDB.svg" alt="TMDB logo" className="logo" /> TMDB{" "}
+						<img
+							src="../../images/logoTMDB.svg"
+							alt="TMDB logo"
+							className="logo"
+						/>{" "}
+						TMDB{" "}
 					</Navbar.Brand>
 
 					<Navbar.Toggle />
