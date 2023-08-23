@@ -7,8 +7,13 @@ import NavDropdown from "react-bootstrap/NavDropdown"
 
 const Header = () => {
 	return (
-		<div>
-			<Navbar expand="md" bg="dark" data-bs-theme="dark" fixed="top">
+		<>
+			<Navbar
+				className="navbar-sticky-custom"
+				expand="md"
+				bg="dark"
+				data-bs-theme="dark"
+			>
 				<Container fluid>
 					<Navbar.Brand href="#">
 						<img src="logoTMDB.svg" alt="TMDB logo" className="logo" /> TMDB{" "}
@@ -72,7 +77,7 @@ const Header = () => {
 					</Navbar.Collapse>
 				</Container>
 			</Navbar>
-		</div>
+		</>
 	)
 }
 

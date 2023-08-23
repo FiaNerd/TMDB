@@ -10,6 +10,12 @@
 	color: #c6911e !important;
 }
 
+.navbar {
+	position: sticky;
+	top: 0;
+	z-index: 900;
+}
+
 /* custom primary search button */
 .btn-outline-primary-custom {
 	color: #ededed;
@@ -58,11 +64,9 @@
 	background-image: url("../../public/images/MSHK.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
-	margin-top: 3.5em;
-	height: 35em;
 }
 
 .hero-mask {
-	background-color: rgba(0, 0, 0, 0.6);
-	height: 100%;
+	background-color: rgba(0, 0, 0, 0.664);
+	max-height: 100%;
 }
