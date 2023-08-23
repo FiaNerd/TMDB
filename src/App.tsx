@@ -1,11 +1,12 @@
-import './assets/App.scss'
+import Header from "./partial/Header"
+import "./assets/App.scss"
 
 const App = () => {
-  return (
-    <>
-      <h1>TMDB</h1>
-    </>
-  );
-};
+	return (
+		<>
+			<Header />
+		</>
+	)
+}
 
-export default App;
+export default App
