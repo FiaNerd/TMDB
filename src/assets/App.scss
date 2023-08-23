@@ -52,3 +52,12 @@
 .show > .btn-outline-primary.dropdown-toggle:focus {
 	box-shadow: 0 0 0 0.2rem rgba(235, 226, 131, 0.5);
 }
+
+/* Hero Section */
+.hero-container {
+	background-image: url("../../public/images/MSHK.jpg");
+	background-repeat: no-repeat;
+	height: 30em;
+	background-size: cover;
+	margin-top: 5em;
+}
