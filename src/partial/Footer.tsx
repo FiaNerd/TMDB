@@ -2,7 +2,7 @@ import { Button } from "react-bootstrap"
 
 const Footer = () => {
 	return (
-		<footer className="footer">
+		<footer className="footer-container">
 			<div className="footer-wrapper">
 				<p className="text-footer">
 					In the dim glow, cinematic dreams materialize, igniting emotions that

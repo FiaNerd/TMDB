@@ -26,15 +26,15 @@ const Header = () => {
 							<Nav.Link
 								as={NavLink}
 								to="/"
-								className="text-white link-text-custom"
+								className="text-white link-text-custom active"
 							>
 								MOVIES
 							</Nav.Link>
 							<Nav.Link href="#action1" className="text-white link-text-custom">
-								POPULAR
+								POPULAR MOVIES
 							</Nav.Link>
 							<Nav.Link href="#action2" className="text-white link-text-custom">
-								TOP RATED
+								TOP RATED MOVIES
 							</Nav.Link>
 							<NavDropdown
 								className="text-white link-text-custom"
