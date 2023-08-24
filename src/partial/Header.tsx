@@ -4,11 +4,12 @@ import Form from "react-bootstrap/Form"
 import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
 import NavDropdown from "react-bootstrap/NavDropdown"
+import { NavLink } from "react-router-dom"
 
 const Header = () => {
 	return (
 		<>
-			<Navbar className="navbar" expand="lg" bg="dark" data-bs-theme="dark">
+			<Navbar className="navbar" expand="lg" data-bs-theme="dark">
 				<Container fluid>
 					<Navbar.Brand href="#">
 						<img
@@ -22,42 +23,52 @@ const Header = () => {
 					<Navbar.Toggle />
 					<Navbar.Collapse>
 						<Nav className="m-auto my-2 my-lg-0">
-							<Nav.Link href="#action1" className="text-white link-text-custom">
-								Movies
+							<Nav.Link
+								as={NavLink}
+								to="/"
+								className="text-white link-text-custom"
+							>
+								MOVIES
 							</Nav.Link>
 							<Nav.Link href="#action1" className="text-white link-text-custom">
-								Popular Movies
+								POPULAR
 							</Nav.Link>
 							<Nav.Link href="#action2" className="text-white link-text-custom">
-								Top Rated Movies
+								TOP RATED
 							</Nav.Link>
 							<NavDropdown
 								className="text-white link-text-custom"
-								title="Genres"
+								title="GENRES"
 							>
 								<NavDropdown.Item
 									href="#action3"
 									className="text-white link-text-custom"
 								>
-									Action
+									ACTION
 								</NavDropdown.Item>
 								<NavDropdown.Item
 									href="#action4"
 									className="text-white link-text-custom"
 								>
-									Fantasy
+									FANTASY
 								</NavDropdown.Item>
 								<NavDropdown.Item
 									href="#action4"
 									className="text-white link-text-custom"
 								>
-									Horror
+									HORROR
 								</NavDropdown.Item>
 								<NavDropdown.Item
 									href="#"
 									className="text-white link-text-custom"
 								>
-									Drama
+									DRAMA
+								</NavDropdown.Item>
+								<NavDropdown.Item
+									href="#"
+									className="text-white link-text-custom"
+								>
+									ROMANCE
 								</NavDropdown.Item>
 								<NavDropdown.Divider />
 								<NavDropdown.Item href="#">

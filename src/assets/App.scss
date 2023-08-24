@@ -1,9 +1,7 @@
 @import "bootstrap/scss/bootstrap";
 
-body {
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
+.body {
+	min-height: 100%;
 }
 
 .logo {
@@ -20,6 +18,7 @@ body {
 	position: sticky;
 	top: 0;
 	z-index: 900;
+	background-color: #202020;
 }
 
 /* custom primary search button */
@@ -85,7 +84,6 @@ body {
 .footer {
 	background-color: #202020;
 	width: 100%;
-	position: absolute;
 	bottom: 0;
 	left: 0;
 }
@@ -97,11 +95,11 @@ body {
 
 .text-footer {
 	color: #ededed;
-	width: 24em;
+	width: 20em;
 	text-align: center;
 	font-size: 1rem;
 	margin: 0 auto;
-	padding: 3em 2em 2em 2em;
+	padding: 3em 0em;
 }
 
 .btn-footer {
