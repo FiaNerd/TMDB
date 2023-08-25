@@ -1,5 +1,5 @@
 const CardSlider = () => {
-	return <div>CardSlider</div>
+	return <></>
 }
 
 export default CardSlider
