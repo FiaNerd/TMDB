@@ -2,7 +2,7 @@ import { Button } from "react-bootstrap"
 
 const Hero = () => {
 	return (
-		<div className="hero-container p-5 text-center bg-image">
+		<div className="hero-container p-5 text-center bg-image mb-5">
 			<div className="hero-mask ">
 				<div className=" d-flex justify-content-center align-items-center h-100">
 					<div className="text-container text-white p-2">

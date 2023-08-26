@@ -1,6 +1,9 @@
 import { useState } from "react"
 import { useQuery } from "@tanstack/react-query"
 import * as TMDB_API from "../services/TMDB_API"
+import { Carousel } from "react-responsive-carousel"
+import "react-responsive-carousel/lib/styles/carousel.min.css"
+import "../assets/App.scss"
 
 const CardSlider = () => {
 	const [page, setPage] = useState(1)
@@ -22,16 +25,28 @@ const CardSlider = () => {
 
 	return (
 		<>
-			<h1>Current Movies</h1>
-			{currentCinemaMovies &&
-				currentCinemaMovies.results.map((movie) => (
-					<div key={movie.id}>
+			<h1 className="mb-2">Current Movies</h1>
+			<Carousel
+				showThumbs={false}
+				autoPlay
+				interval={2000}
+				showStatus={true}
+				showArrows={true}
+				autoFocus={true}
+				dynamicHeight={true}
+				infiniteLoop={true} // Enable infinite loop
+				className="custom-carousel mb-5"
+			>
+				{currentCinemaMovies.results.map((movie) => (
+					<div key={movie.id} className="img-container">
 						<img
-							src={`https://image.tmdb.org/t/p/w500${movie.poster_path}?language=se-SV&include_image_language=se,null`}
+							src={`https://image.tmdb.org/t/p/w200${movie.poster_path}?language=se-SV&include_image_language=se,null`}
 							alt={movie.title}
+							className="img-slider"
 						/>
 					</div>
 				))}
+			</Carousel>
 		</>
 	)
 }

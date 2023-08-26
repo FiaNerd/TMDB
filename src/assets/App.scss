@@ -200,3 +200,17 @@ footer {
 		}
 	}
 }
+
+.custom-carousel .carousel .slider-wrapper {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.img-container {
+	margin: 0.2em;
+	padding: 0.2em;
+}
+
+.control-dots {
+	display: none;
+}
