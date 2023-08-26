@@ -1,21 +1,12 @@
-import { useState } from "react"
-import { useQuery } from "@tanstack/react-query"
-import * as TMDB_API from "../services/TMDB_API"
 import { Carousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import "../assets/App.scss"
+import useCurrentMovie from "../hooks/useCurrentMovie"
 
 // TODO: Se om du kan lägga denna i en hook dynamisk och sedan med hjälp av props rendera ut
 // Current, Top, bästa betyg på denna sidan
 const CardSlider = () => {
-	const [page, setPage] = useState(1)
-	const {
-		data: currentCinemaMovies,
-		isLoading,
-		isError,
-	} = useQuery(["currentMovies", { page }], () =>
-		TMDB_API.getCurrentMovies(page),
-	)
+	const { data: currentCinemaMovies, isLoading, isError } = useCurrentMovie()
 
 	if (isLoading) {
 		return <p>Loading...</p>
@@ -27,12 +18,12 @@ const CardSlider = () => {
 
 	return (
 		<div className="carosuel-container">
-			<h1 className="mb-2">Current Movies</h1>
+			<h1 className="mb-2 px-2">BIO AKTUELLA FILMER</h1>
 			<Carousel
 				showThumbs={false}
 				autoPlay
 				interval={2000}
-				// showStatus={true}
+				showStatus={false}
 				showArrows={true}
 				autoFocus={true}
 				infiniteLoop={true}

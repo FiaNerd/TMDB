@@ -204,7 +204,7 @@ footer {
 
 .custom-carousel .carousel .slider-wrapper {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
 
 .img-container {
@@ -231,4 +231,8 @@ footer {
 }
 
 // /* Largest devices such as desktops (1280px and up) */
-// @media only screen and (min-width: 80em) {...}
+@media only screen and (min-width: 80em) {
+	.custom-carousel .carousel .slider-wrapper {
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	}
+}
