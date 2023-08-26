@@ -17,6 +17,6 @@ export type PlayingNowCinema = {
 
 export type PlayingNowCinemas = PlayingNowCinema[]
 
-export type ResultCurrentBio = {
+export type ResultCurrentCinema = {
 	results: PlayingNowCinema[]
 }
