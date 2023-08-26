@@ -194,6 +194,7 @@ footer {
 		}
 	}
 
+	// /* Large devices such as laptops (1024px and up) */
 	@media only screen and (max-width: 64em) {
 		.logo-footer {
 			display: none;
@@ -203,7 +204,7 @@ footer {
 
 .custom-carousel .carousel .slider-wrapper {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
 }
 
 .img-container {
@@ -214,3 +215,20 @@ footer {
 .control-dots {
 	display: none;
 }
+
+/* Medium devices such as tablets (768px and up) */
+@media only screen and (min-width: 48em) {
+	.custom-carousel .carousel .slider-wrapper {
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	}
+}
+
+@media only screen and (min-width: 64em) {
+	.carosuel-container {
+		margin: 0 auto;
+		width: 60em;
+	}
+}
+
+// /* Largest devices such as desktops (1280px and up) */
+// @media only screen and (min-width: 80em) {...}

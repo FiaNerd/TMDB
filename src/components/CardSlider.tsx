@@ -24,17 +24,16 @@ const CardSlider = () => {
 	}
 
 	return (
-		<>
+		<div className="carosuel-container">
 			<h1 className="mb-2">Current Movies</h1>
 			<Carousel
 				showThumbs={false}
 				autoPlay
 				interval={2000}
-				showStatus={true}
+				// showStatus={true}
 				showArrows={true}
 				autoFocus={true}
-				dynamicHeight={true}
-				infiniteLoop={true} // Enable infinite loop
+				infiniteLoop={true}
 				className="custom-carousel mb-5"
 			>
 				{currentCinemaMovies.results.map((movie) => (
@@ -47,7 +46,7 @@ const CardSlider = () => {
 					</div>
 				))}
 			</Carousel>
-		</>
+		</div>
 	)
 }
 
