@@ -1,11 +1,12 @@
 import { useState } from "react"
 import { useQuery } from "@tanstack/react-query"
-import { getCurrentMovies } from "../services/TMDB_API"
+import { getPopularMovies } from "../services/TMDB_API"
+;("../services/TMDB_API")
 
 const useCurrentMovie = () => {
 	const [page, setPage] = useState(1)
 
-	return useQuery(["currentMovies", { page }], () => getCurrentMovies(page))
+	return useQuery(["popularMovies", { page }], () => getPopularMovies(page))
 }
 
 export default useCurrentMovie

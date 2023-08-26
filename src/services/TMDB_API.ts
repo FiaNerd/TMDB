@@ -1,5 +1,5 @@
 import axios from "axios"
-import { ResultCurrentCinema } from "../types/CurrentOnCinema.types"
+import { Movies } from "../types/Movies.types"
 
 const BASE_URL = import.meta.env.VITE_TMDB_DATABASE_URL
 const ACCESS_TOKEN = import.meta.env.VITE_TMDB_ACCESS_TOKEN
@@ -24,7 +24,11 @@ const get = async <T>(endpoint: string) => {
 }
 
 export const getCurrentMovies = (page = 1) => {
-	return get<ResultCurrentCinema>(
+	return get<Movies>(
 		`${BASE_URL}/now_playing?language=sv-SE&page=${page}&region=se`,
 	)
+}
+
+export const getPopularMovies = (page = 1) => {
+	return get<Movies>(`${BASE_URL}/popular?language=sv-SE&${page}&region=se`)
 }
