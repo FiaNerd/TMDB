@@ -1,8 +1,9 @@
 import axios from "axios"
 import { PlayingNowCinemas } from "../types/CurrentOnCinema"
 
-const BASE_URL = import.meta.env.TMDB_DATABASE_URL
-const ACCESS_TOKEN = import.meta.env.TMDB_ACCESS_TOKEN
+// const BASE_URL = "https://api.themoviedb.org/3/movie"
+const BASE_URL = import.meta.env.VITE_TMDB_DATABASE_URL
+const ACCESS_TOKEN = import.meta.env.VITE_TMDB_ACCESS_TOKEN
 const FAKE_DELAY = 1500
 
 const instance = axios.create({
