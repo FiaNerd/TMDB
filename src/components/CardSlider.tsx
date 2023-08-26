@@ -5,6 +5,8 @@ import { Carousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import "../assets/App.scss"
 
+// TODO: Se om du kan lägga denna i en hook dynamisk och sedan med hjälp av props rendera ut
+// Current, Top, bästa betyg på denna sidan
 const CardSlider = () => {
 	const [page, setPage] = useState(1)
 	const {

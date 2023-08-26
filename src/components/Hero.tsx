@@ -16,7 +16,7 @@ const Hero = () => {
 							variant="outline-light"
 							className="btn-color-custom btn-lg mb-5"
 						>
-							Checkout our movies
+							HITTA DIN FILM
 						</Button>
 					</div>
 				</div>
