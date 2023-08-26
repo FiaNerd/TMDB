@@ -1,22 +1,38 @@
 import CardSlider from "../components/CardSlider"
 import Hero from "../components/Hero"
-import useCurrentMovie from "../hooks/useCurrentMovie"
+import useCurrentMovies from "../hooks/useCurrentMovies"
+import usePopularMovies from "../hooks/usePopularMovies"
 
 const HomePage = () => {
-	const { data: currentCinemaMovies, isLoading, isError } = useCurrentMovie()
+	const {
+		data: currentCinemaMovies,
+		isLoading: currentCinemaLoading,
+		isError: currentCinemaError,
+	} = useCurrentMovies()
+	const {
+		data: popularMovies,
+		isLoading: popularMoviesLoading,
+		isError: popularMoviesError,
+	} = usePopularMovies()
 
-	if (isLoading) {
+	if (currentCinemaLoading || popularMoviesLoading) {
 		return <p>Loading...</p>
 	}
 
-	if (isError) {
+	if (currentCinemaError || popularMoviesError) {
 		return <p>Error</p>
 	}
 
 	return (
 		<>
 			<Hero />
-			<CardSlider />
+			<div className="main-container">
+				<h1 className="title mb-2">BIO AKTUELLA FILMER</h1>
+				<CardSlider movies={currentCinemaMovies} />
+
+				<h1 className="title mb-2">POPULÄRA FILMER</h1>
+				<CardSlider movies={popularMovies} />
+			</div>
 		</>
 	)
 }

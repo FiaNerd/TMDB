@@ -17,6 +17,6 @@ export type Movie = {
 
 export type Movies = Movie[]
 
-export type ResultCurrentCinema = {
+export type ResultMovies = {
 	results: Movie[]
 }

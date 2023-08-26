@@ -112,6 +112,10 @@ p {
 	background-color: #cc9503;
 }
 
+/* HomePage */
+.main-container {
+	padding: 0 2em;
+}
 /* Footer */
 footer {
 	bottom: 0;
@@ -226,7 +230,6 @@ footer {
 @media only screen and (min-width: 64em) {
 	.carosuel-container {
 		margin: 0 auto;
-		width: 75em;
 	}
 }
 
@@ -234,5 +237,9 @@ footer {
 @media only screen and (min-width: 80em) {
 	.custom-carousel .carousel .slider-wrapper {
 		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	}
+	.main-container {
+		width: 75em;
+		margin: 0 auto;
 	}
 }

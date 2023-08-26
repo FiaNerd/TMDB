@@ -5,7 +5,7 @@ import { getCurrentMovies } from "../services/TMDB_API"
 const useCurrentMovie = () => {
 	const [page, setPage] = useState(1)
 
-	return useQuery(["currentMovies", { page }], () => getCurrentMovies(page))
+	return useQuery(["current-movies", { page }], () => getCurrentMovies(page))
 }
 
 export default useCurrentMovie
