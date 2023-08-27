@@ -34,3 +34,9 @@ export const getPopularMovies = (page = 1) => {
 		`${BASE_URL}/popular?language=sv-SE&${page}&region=se`,
 	)
 }
+
+export const getTopMovies = (page = 1) => {
+	return get<ResultMovies>(
+		`${BASE_URL}/top_rated?language=sv-SE&${page}&region=se`,
+	)
+}
