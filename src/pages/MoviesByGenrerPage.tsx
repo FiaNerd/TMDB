@@ -1,5 +1,6 @@
 import { useLocation, useParams } from "react-router-dom"
 import useGenreById from "../hooks/useGenreById"
+import { Card } from "react-bootstrap"
 
 const MoviesByGenrerPage = () => {
 	const { id } = useParams()
@@ -16,19 +17,21 @@ const MoviesByGenrerPage = () => {
 	}
 
 	return (
-		<>
-			<h1>{genreTitle}</h1>
-			{gengre_id?.results.map((movie) => (
-				<div>
-					<p key={movie.id}>{movie.original_title}</p>
-					<img
-						src={`https://image.tmdb.org/t/p/w200${movie.poster_path}?language=se-SV&include_image_language=se,null`}
-						alt={movie.title}
-						className="img-slider"
-					/>
-				</div>
-			))}
-		</>
+		<div className="genre-card-container mb-5">
+			<h1 className="title mt-5 mb-2">{genreTitle}</h1>
+			<div className="genre-card-wrapper">
+				{gengre_id?.results.map((movie) => (
+					<Card>
+						<Card.Img
+							variant="top"
+							src={`https://image.tmdb.org/t/p/w200${movie.poster_path}?language=se-SV&include_image_language=se,null`}
+							alt={movie.title}
+							className="card-image"
+						/>
+					</Card>
+				))}
+			</div>
+		</div>
 	)
 }
 
