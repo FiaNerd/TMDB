@@ -1,7 +1,7 @@
 import { Carousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import "../assets/App.scss"
-import { ResultMovies } from "../types/Movies.types"
+import { ResultMovies } from "../types/MoviesAPI.types"
 
 interface IProps {
 	movies: ResultMovies

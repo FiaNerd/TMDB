@@ -15,6 +15,8 @@ export type Movie = {
 	vote_count: number
 }
 
+export type IdOfMovie = Omit<Movie, "id">
+
 export type Movies = Movie[]
 
 export type ResultMovies = {

@@ -1,5 +1,6 @@
 import axios from "axios"
-import { ResultMovies } from "../types/Movies.types"
+import { ResultMovies } from "../types/MoviesAPI.types"
+import { GenrerResults } from "../types/GenrersAPI.types"
 
 const BASE_URL = import.meta.env.VITE_TMDB_DATABASE_URL
 const ACCESS_TOKEN = import.meta.env.VITE_TMDB_ACCESS_TOKEN
@@ -39,4 +40,8 @@ export const getTopMovies = (page = 1) => {
 	return get<ResultMovies>(
 		`${BASE_URL}/top_rated?language=sv-SE&${page}&region=se`,
 	)
+}
+
+export const getGenresMovies = () => {
+	return get<GenrerResults>(`${BASE_URL}/genre/movie/list?language=sv`)
 }

@@ -1,4 +1,5 @@
 import CardSlider from "../components/CardSlider"
+import Genres from "../components/Genres"
 import Hero from "../components/Hero"
 import useCurrentMovies from "../hooks/useCurrentMovies"
 import usePopularMovies from "../hooks/usePopularMovies"
@@ -25,13 +26,14 @@ const HomePage = () => {
 		<>
 			<Hero />
 			<div className="main-container">
-				<h1 className="title mb-2">BIO AKTUELLA FILMER</h1>
+				<Genres />
+				<h1 className="title mb-2">20 BIO AKTUELLA FILMER</h1>
 				<CardSlider movies={currentCinemaMovies} />
 
-				<h1 className="title mb-2">POPULÄRA FILMER</h1>
+				<h1 className="title mb-2">20 POPULÄRA FILMER</h1>
 				<CardSlider movies={popularMovies} />
 
-				<h1 className="title mb-2">TOPP FILMER</h1>
+				<h1 className="title mb-2">20 TOPP FILMER</h1>
 				<CardSlider movies={topMovies} />
 			</div>
 		</>

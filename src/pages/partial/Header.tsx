@@ -32,7 +32,7 @@ const Header = () => {
 							</Nav.Link>
 							<Nav.Link
 								as={NavLink}
-								to="#"
+								to="/movies"
 								className="text-white link-text-custom active"
 							>
 								FILMER
