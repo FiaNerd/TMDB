@@ -9,6 +9,7 @@ const HomePage = () => {
 		isLoading: currentCinemaLoading,
 		isError: currentCinemaError,
 	} = useCurrentMovies()
+
 	const {
 		data: popularMovies,
 		isLoading: popularMoviesLoading,

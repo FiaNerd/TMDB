@@ -14,13 +14,13 @@ const CardSlider = ({ movies }: IProps) => {
 				showThumbs={false}
 				autoPlay
 				interval={2000}
-				showStatus={false}
+				showStatus={true}
 				showArrows={true}
 				autoFocus={true}
 				infiniteLoop={true}
 				className="custom-carousel mb-5"
 			>
-				{movies.results.map((movie) => (
+				{movies.results.slice(0, 20).map((movie) => (
 					<div key={movie.id} className="img-container">
 						<img
 							src={`https://image.tmdb.org/t/p/w200${movie.poster_path}?language=se-SV&include_image_language=se,null`}

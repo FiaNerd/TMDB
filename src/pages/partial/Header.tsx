@@ -11,7 +11,7 @@ const Header = () => {
 		<>
 			<Navbar className="navbar" expand="lg" data-bs-theme="dark">
 				<Container fluid>
-					<Navbar.Brand href="#">
+					<Navbar.Brand href="/">
 						<img
 							src="../../images/logoTMDB.svg"
 							alt="TMDB logo"
@@ -26,6 +26,13 @@ const Header = () => {
 							<Nav.Link
 								as={NavLink}
 								to="/"
+								className="text-white link-text-custom active"
+							>
+								HEM
+							</Nav.Link>
+							<Nav.Link
+								as={NavLink}
+								to="#"
 								className="text-white link-text-custom active"
 							>
 								FILMER
