@@ -1,5 +1,6 @@
 import { Carousel } from "react-responsive-carousel"
 import useGenreMovies from "../hooks/useGenreMovies"
+import { Nav, NavLink } from "react-bootstrap"
 
 const Genres = () => {
 	const { data: geresMovies, isError } = useGenreMovies()
@@ -22,7 +23,15 @@ const Genres = () => {
 				>
 					{geresMovies?.genres.map((genrer) => (
 						<div key={genrer.id}>
-							<h3>{genrer.name}</h3>
+							<Nav className="m-auto my-2 my-lg-0">
+								<Nav.Link
+									as={NavLink}
+									to={`#`}
+									className="text-white link-text-custom active"
+								>
+									{genrer.name}
+								</Nav.Link>
+							</Nav>
 						</div>
 					))}
 				</Carousel>

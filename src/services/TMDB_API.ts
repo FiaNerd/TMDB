@@ -47,3 +47,9 @@ export const getGenreMovies = () => {
 		`https://api.themoviedb.org/3/genre/movie/list?language=sv`,
 	)
 }
+
+export const getGenreById = (id: number) => {
+	return get<ResultMovies>(
+		`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=sv-Se&page=1&region=SE&sort_by=popularity.desc&with_cast=%2C&with_genres=${id}`,
+	)
+}
