@@ -22,14 +22,14 @@ const Genres = () => {
 					infiniteLoop={true}
 					className="custom-carousel mb-5"
 				>
-					{genresMovies?.genres.map((genrer) => (
-						<div key={genrer.id}>
+					{genresMovies?.genres.map((genre) => (
+						<div key={genre.id}>
 							<Link
-								to={`/movies/${genrer.id}`}
+								to={`/movies/${genre.id}`}
+								state={{ genreTitle: genre.name }}
 								className="text-white link-text-custom active"
 							>
-								{genrer.name}
-								{genrer.id}
+								{genre.name}
 							</Link>
 						</div>
 					))}
