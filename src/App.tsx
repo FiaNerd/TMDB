@@ -1,16 +1,18 @@
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
+import { Route, Routes } from "react-router-dom"
+import { Container } from "react-bootstrap"
 import Header from "./pages/partial/Header"
-import "./assets/App.scss"
 import HomePage from "./pages/HomePage"
 import Footer from "./pages/partial/Footer"
-import { Route, Routes } from "react-router-dom"
+import LoadingSpinner from "./components/LoadingSpinner"
 import PageNotFound from "./pages/PageNotFound"
-import { Container } from "react-bootstrap"
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
+import "./assets/App.scss"
 
 const App = () => {
 	return (
 		<>
 			<Header />
+			<LoadingSpinner />
 			<Container className="content-container">
 				<Routes>
 					<Route path="/" element={<HomePage />} />

@@ -5,30 +5,20 @@ import usePopularMovies from "../hooks/usePopularMovies"
 import useTopMovies from "../hooks/useTopMovies"
 
 const HomePage = () => {
-	const {
-		data: currentCinemaMovies,
-		isLoading: currentCinemaLoading,
-		isError: currentCinemaError,
-	} = useCurrentMovies()
+	const { data: currentCinemaMovies, isError: currentCinemaError } =
+		useCurrentMovies()
 
-	const {
-		data: popularMovies,
-		isLoading: popularMoviesLoading,
-		isError: popularMoviesError,
-	} = usePopularMovies()
+	const { data: popularMovies, isError: popularMoviesError } =
+		usePopularMovies()
 
-	const {
-		data: topMovies,
-		isLoading: topMoviesLoading,
-		isError: topMoviesError,
-	} = useTopMovies()
-
-	if (currentCinemaLoading || popularMoviesLoading || topMoviesLoading) {
-		return <p>Loading...</p>
-	}
+	const { data: topMovies, isError: topMoviesError } = useTopMovies()
 
 	if (currentCinemaError || popularMoviesError || topMoviesError) {
 		return <p>Error</p>
+	}
+
+	if (!currentCinemaMovies || !popularMovies || !topMovies) {
+		return
 	}
 
 	return (
