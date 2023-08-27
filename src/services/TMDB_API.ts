@@ -42,6 +42,8 @@ export const getTopMovies = (page = 1) => {
 	)
 }
 
-export const getGenresMovies = () => {
-	return get<GenrerResults>(`${BASE_URL}/genre/movie/list?language=sv`)
+export const getGenreMovies = () => {
+	return get<GenrerResults>(
+		`https://api.themoviedb.org/3/genre/movie/list?language=sv`,
+	)
 }
