@@ -114,7 +114,11 @@ p {
 
 /* HomePage */
 .main-container {
-	padding: 0 2em;
+	padding: 0 0.4em;
+
+	.title {
+		margin: 0 0.28em;
+	}
 }
 /* Footer */
 footer {
@@ -170,6 +174,7 @@ footer {
 		}
 	}
 
+	// /* Large devices such as laptops (1024px and up) */
 	@media only screen and (min-width: 64em) {
 		.footer-container {
 			flex-direction: row;
@@ -225,10 +230,18 @@ footer {
 	.custom-carousel .carousel .slider-wrapper {
 		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 	}
+	.main-container {
+		width: 55em;
+		margin: 0 auto;
+	}
 }
 
 @media only screen and (min-width: 64em) {
 	.carosuel-container {
+		margin: 0 auto;
+	}
+	.main-container {
+		width: 75em;
 		margin: 0 auto;
 	}
 }
