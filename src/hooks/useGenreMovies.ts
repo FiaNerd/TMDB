@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query"
 import { getGenreMovies } from "../services/TMDB_API"
-const useCurrentMovies = () => {
-	return useQuery(["genres-movies"], () => getGenreMovies())
+
+const useGenreMovies = () => {
+	return useQuery(["genres"], () => getGenreMovies())
 }
 
-export default useCurrentMovies
+export default useGenreMovies

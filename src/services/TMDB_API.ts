@@ -26,30 +26,28 @@ const get = async <T>(endpoint: string) => {
 
 export const getCurrentMovies = (page = 1) => {
 	return get<ResultMovies>(
-		`${BASE_URL}/now_playing?language=sv-SE&page=${page}&region=se`,
+		`${BASE_URL}/movie/now_playing?language=sv-SE&page=${page}&region=se`,
 	)
 }
 
 export const getPopularMovies = (page = 1) => {
 	return get<ResultMovies>(
-		`${BASE_URL}/popular?language=sv-SE&${page}&region=se`,
+		`${BASE_URL}/movie/popular?language=sv-SE&${page}&region=se`,
 	)
 }
 
 export const getTopMovies = (page = 1) => {
 	return get<ResultMovies>(
-		`${BASE_URL}/top_rated?language=sv-SE&${page}&region=se`,
+		`${BASE_URL}/movie/top_rated?language=sv-SE&${page}&region=se`,
 	)
 }
 
 export const getGenreMovies = () => {
-	return get<GenrerResults>(
-		`https://api.themoviedb.org/3/genre/movie/list?language=sv`,
-	)
+	return get<GenrerResults>(`${BASE_URL}/genre/movie/list?language=sv`)
 }
 
-export const getGenreById = (id: number) => {
+export const getGenreById = (genre_id: number) => {
 	return get<ResultMovies>(
-		`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=sv-Se&page=1&region=SE&sort_by=popularity.desc&with_cast=%2C&with_genres=${id}`,
+		`${BASE_URL}/discover/movie?include_adult=false&include_video=false&language=se-SV&page=1&region=SE&sort_by=popularity.desc&with_genres=${genre_id}`,
 	)
 }

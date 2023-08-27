@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage"
 import Footer from "./pages/partial/Footer"
 import LoadingSpinner from "./components/LoadingSpinner"
 import PageNotFound from "./pages/PageNotFound"
+import MoviesByGenrerPage from "./pages/MoviesByGenrerPage"
 import "./assets/App.scss"
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
 			<Container className="content-container">
 				<Routes>
 					<Route path="/" element={<HomePage />} />
+					<Route path="/movies/:id" element={<MoviesByGenrerPage />} />
 					<Route path="*" element={<PageNotFound />} />
 				</Routes>
 			</Container>

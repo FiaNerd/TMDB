@@ -1,15 +1,16 @@
 import { Carousel } from "react-responsive-carousel"
+import { Link } from "react-router-dom"
 import useGenreMovies from "../hooks/useGenreMovies"
-import { Nav, NavLink } from "react-bootstrap"
 
 const Genres = () => {
-	const { data: geresMovies, isError } = useGenreMovies()
+	const { data: genresMovies, isError: fetchGenre } = useGenreMovies()
 
-	if (isError) return <p>Error</p>
+	if (fetchGenre) return <p>Error</p>
 
 	return (
 		<>
 			<h1>GENRES</h1>
+			<p></p>
 			<div className="carosuel-container">
 				<Carousel
 					showThumbs={false}
@@ -21,17 +22,15 @@ const Genres = () => {
 					infiniteLoop={true}
 					className="custom-carousel mb-5"
 				>
-					{geresMovies?.genres.map((genrer) => (
+					{genresMovies?.genres.map((genrer) => (
 						<div key={genrer.id}>
-							<Nav className="m-auto my-2 my-lg-0">
-								<Nav.Link
-									as={NavLink}
-									to={`#`}
-									className="text-white link-text-custom active"
-								>
-									{genrer.name}
-								</Nav.Link>
-							</Nav>
+							<Link
+								to={`/movies/${genrer.id}`}
+								className="text-white link-text-custom active"
+							>
+								{genrer.name}
+								{genrer.id}
+							</Link>
 						</div>
 					))}
 				</Carousel>

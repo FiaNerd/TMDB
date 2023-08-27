@@ -1,5 +1,5 @@
 import CardSlider from "../components/CardSlider"
-import Genres from "../components/Genres"
+import Genres from "../components/GenresList"
 import Hero from "../components/Hero"
 import useCurrentMovies from "../hooks/useCurrentMovies"
 import usePopularMovies from "../hooks/usePopularMovies"

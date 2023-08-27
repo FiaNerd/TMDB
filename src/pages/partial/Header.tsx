@@ -45,7 +45,7 @@ const Header = () => {
 							</Nav.Link>
 							<NavDropdown
 								className="text-white link-text-custom"
-								title="GENRER"
+								title="GENRES"
 							>
 								<NavDropdown.Item
 									href="#action3"
