@@ -277,3 +277,23 @@ footer {
 		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 	}
 }
+
+.carousel-slide {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 300px; /* Justera höjden efter behov */
+}
+
+.genre-background {
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	opacity: 0.8;
+}
+
+.link-text-custom {
+	color: white;
+	text-decoration: none;
+}

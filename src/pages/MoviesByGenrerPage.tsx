@@ -1,6 +1,7 @@
 import { useLocation, useParams } from "react-router-dom"
 import useGenreById from "../hooks/useGenreById"
 import { Card } from "react-bootstrap"
+import PaginationContainer from "../components/Pagination"
 
 const MoviesByGenrerPage = () => {
 	const { id } = useParams()
@@ -21,7 +22,7 @@ const MoviesByGenrerPage = () => {
 			<h1 className="title mt-5 mb-2">{genreTitle}</h1>
 			<div className="genre-card-wrapper">
 				{gengre_id?.results.map((movie) => (
-					<Card>
+					<Card key={movie.id}>
 						<Card.Img
 							variant="top"
 							src={`https://image.tmdb.org/t/p/w200${movie.poster_path}?language=se-SV&include_image_language=se,null`}
@@ -31,6 +32,7 @@ const MoviesByGenrerPage = () => {
 					</Card>
 				))}
 			</div>
+			<PaginationContainer />
 		</div>
 	)
 }
