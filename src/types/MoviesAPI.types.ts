@@ -21,4 +21,6 @@ export type Movies = Movie[]
 
 export type ResultMovies = {
 	results: Movie[]
+	total_pages: number
+	total_results: number
 }

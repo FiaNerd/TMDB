@@ -3,17 +3,23 @@ import useGenreById from "../hooks/useGenreById"
 import { Card } from "react-bootstrap"
 import PaginationContainer from "../components/Pagination"
 import { useState } from "react"
+import useGenreMoviesByPage from "../hooks/useGenreMoviesByPage"
 
 const MoviesByGenrerPage = () => {
 	const { id } = useParams()
 	const gengreId = Number(id)
-	const [totalPages, setTotalPages] = useState(0)
+	const [page, setPage] = useState(1)
 
 	const {
 		state: { genreTitle },
 	} = useLocation()
 
 	const { data: gengre_id, isError: fetchGenre } = useGenreById(gengreId)
+	const { data: pages } = useGenreMoviesByPage("discover/movie", gengreId, page)
+
+	console.log(pages?.data.total_pages)
+	console.log(pages?.data.results)
+	console.log(page)
 
 	if (fetchGenre) {
 		return <p>Error</p>
@@ -34,6 +40,7 @@ const MoviesByGenrerPage = () => {
 					</Card>
 				))}
 			</div>
+			<p>{pages?.data.total_pages}</p>
 			<PaginationContainer />
 		</div>
 	)

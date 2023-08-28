@@ -52,8 +52,18 @@ export const getGenreById = (genre_id: number) => {
 	)
 }
 
-export const getGenreMoviesByPage = (genre_id: number, page: number) => {
-	return get<ResultMovies>(
-		`${BASE_URL}/discover/movie?include_adult=false&include_video=false&language=se-SV&page=${page}&region=SE&sort_by=popularity.desc&with_genres=${genre_id}`,
-	)
+export const getGenreMoviesByPage = (
+	resource: string,
+	page: number = 1,
+	genre_id?: number,
+) => {
+	try {
+		console.log("Resource", resource, "Page", page, "Genre ID", genre_id)
+		return instance.get<ResultMovies>(
+			`${BASE_URL}/${resource}?include_adult=false&include_video=false&language=se-SV&page=${page}&region=SE&sort_by=popularity.desc&with_genres=${genre_id}`,
+		)
+	} catch (error) {
+		console.log("Axios error:", error)
+		throw error
+	}
 }
