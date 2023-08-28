@@ -2,10 +2,12 @@ import { useLocation, useParams } from "react-router-dom"
 import useGenreById from "../hooks/useGenreById"
 import { Card } from "react-bootstrap"
 import PaginationContainer from "../components/Pagination"
+import { useState } from "react"
 
 const MoviesByGenrerPage = () => {
 	const { id } = useParams()
 	const gengreId = Number(id)
+	const [totalPages, setTotalPages] = useState(0)
 
 	const {
 		state: { genreTitle },

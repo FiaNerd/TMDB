@@ -51,3 +51,9 @@ export const getGenreById = (genre_id: number) => {
 		`${BASE_URL}/discover/movie?include_adult=false&include_video=false&language=se-SV&page=1&region=SE&sort_by=popularity.desc&with_genres=${genre_id}`,
 	)
 }
+
+export const getGenreMoviesByPage = (genre_id: number, page: number) => {
+	return get<ResultMovies>(
+		`${BASE_URL}/discover/movie?include_adult=false&include_video=false&language=se-SV&page=${page}&region=SE&sort_by=popularity.desc&with_genres=${genre_id}`,
+	)
+}
