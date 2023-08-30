@@ -57,6 +57,15 @@ p {
 	background-color: #202020;
 }
 
+.dropdown-menu {
+	display: grid !important;
+	grid-template-columns: 1fr 1fr 1fr !important;
+}
+
+.dropdown-item.active {
+	background-color: #121212;
+}
+
 /* custom primary search button */
 .btn-outline-primary-custom {
 	color: #ededed;

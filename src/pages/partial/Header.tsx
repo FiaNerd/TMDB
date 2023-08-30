@@ -5,11 +5,19 @@ import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
 import NavDropdown from "react-bootstrap/NavDropdown"
 import { NavLink } from "react-router-dom"
+import useGenreMovies from "../../hooks/useGenreMovies"
 
 const Header = () => {
+	const { data: genreLinks } = useGenreMovies()
+
 	return (
 		<>
-			<Navbar className="navbar" expand="lg" data-bs-theme="dark">
+			<Navbar
+				className="navbar"
+				collapseOnSelect
+				expand="lg"
+				data-bs-theme="dark"
+			>
 				<Container fluid>
 					<Navbar.Brand href="/">
 						<img
@@ -20,13 +28,14 @@ const Header = () => {
 						TMDB{" "}
 					</Navbar.Brand>
 
-					<Navbar.Toggle />
-					<Navbar.Collapse>
+					<Navbar.Toggle aria-controls="responsive-navbar-nav" />
+					<Navbar.Collapse id="responsive-navbar-nav">
 						<Nav className="m-auto my-2 my-lg-0">
 							<Nav.Link
 								as={NavLink}
 								to="/"
 								className="text-white link-text-custom active"
+								eventKey={0}
 							>
 								HEM
 							</Nav.Link>
@@ -34,53 +43,44 @@ const Header = () => {
 								as={NavLink}
 								to="/movies"
 								className="text-white link-text-custom active"
+								eventKey={1}
 							>
-								FILMER
+								BIO AKTUELLT
 							</Nav.Link>
-							<Nav.Link href="#action1" className="text-white link-text-custom">
+							<Nav.Link
+								as={NavLink}
+								to="#action1"
+								className="text-white link-text-custom active"
+								eventKey={2}
+							>
 								POPULÄRA FILMER
 							</Nav.Link>
-							<Nav.Link href="#action2" className="text-white link-text-custom">
+							<Nav.Link
+								as={NavLink}
+								to="#action2"
+								className="text-white link-text-custom active"
+								eventKey={3}
+							>
 								TOP FILMER
 							</Nav.Link>
 							<NavDropdown
+								id="navbarScrollingDropdown"
 								className="text-white link-text-custom"
 								title="GENRES"
 							>
-								<NavDropdown.Item
-									href="#action3"
-									className="text-white link-text-custom"
-								>
-									ACTION
-								</NavDropdown.Item>
-								<NavDropdown.Item
-									href="#action4"
-									className="text-white link-text-custom"
-								>
-									FANTASY
-								</NavDropdown.Item>
-								<NavDropdown.Item
-									href="#action4"
-									className="text-white link-text-custom"
-								>
-									HORROR
-								</NavDropdown.Item>
-								<NavDropdown.Item
-									href="#"
-									className="text-white link-text-custom"
-								>
-									DRAMA
-								</NavDropdown.Item>
-								<NavDropdown.Item
-									href="#"
-									className="text-white link-text-custom"
-								>
-									ROMANCE
-								</NavDropdown.Item>
-								<NavDropdown.Divider />
-								<NavDropdown.Item href="#">
-									Something else here
-								</NavDropdown.Item>
+								{genreLinks?.genres.map((genre) => (
+									<NavDropdown.Item
+										key={genre.id}
+										as={NavLink}
+										state={{ genreTitle: genre.name }}
+										to={`/movies/${genre.id}`}
+										id="collasible-nav-dropdown"
+										className="custom-active nav-drop-items text-white link-text-custom"
+										eventKey={3}
+									>
+										{genre.name}
+									</NavDropdown.Item>
+								))}
 							</NavDropdown>
 						</Nav>
 						<Form className="d-flex">
