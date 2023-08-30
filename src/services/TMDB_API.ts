@@ -54,7 +54,7 @@ export const getGenreById = (genre_id: number) => {
 
 export const getGenreMoviesByPage = (
 	resource: string,
-	page: number = 1,
+	page: number,
 	genre_id?: number,
 ) => {
 	try {

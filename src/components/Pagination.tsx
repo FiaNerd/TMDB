@@ -1,12 +1,14 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import classNames from "classnames"
 import styles from "../assets/pagination.module.scss"
 import { useLocation, useNavigate } from "react-router-dom"
 
+interface IProps {
+	totalPages: number
+}
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const Pagination = ({ totalPages }: any) => {
+export const Pagination = ({ totalPages }: IProps) => {
 	const [page, setPage] = useState(1)
-
 	const location = useLocation()
 
 	const resource = location.pathname.replace("/", "")
@@ -16,6 +18,16 @@ export const Pagination = ({ totalPages }: any) => {
 		setPage(updatePage)
 		navigate(`/${resource}?page=${updatePage}`)
 	}
+
+	useEffect(() => {
+		const searchParams = new URLSearchParams(location.search)
+		const pageParam = searchParams.get("page")
+		const page = pageParam ? Number(pageParam) : 1
+
+		if (!isNaN(page) && page >= 1) {
+			setPage(page)
+		}
+	}, [location.search])
 
 	if (totalPages === 1) {
 		return (

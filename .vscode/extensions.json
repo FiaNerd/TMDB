@@ -1,6 +1,7 @@
 {
-    "recommendations": [
-        "rvest.vs-code-prettier-eslint",
-        "esbenp.prettier-vscode"
-    ]
+	"recommendations": [
+		"rvest.vs-code-prettier-eslint",
+		"esbenp.prettier-vscode",
+		"gruntfuggly.todo-tree"
+	]
 }
