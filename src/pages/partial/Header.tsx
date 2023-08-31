@@ -6,9 +6,15 @@ import Navbar from "react-bootstrap/Navbar"
 import NavDropdown from "react-bootstrap/NavDropdown"
 import useGenreMovies from "../../hooks/useGenreMovies"
 import { NavLink } from "react-router-dom"
+import { useState } from "react"
 
 const Header = () => {
 	const { data: genreLinks } = useGenreMovies()
+	const [isOpen, setIsOpen] = useState(false)
+
+	function handleClick(): void {
+		setIsOpen(!isOpen)
+	}
 
 	return (
 		<>
@@ -28,9 +34,7 @@ const Header = () => {
 						TMDB{" "}
 					</Navbar.Brand>
 
-					<Navbar.Toggle
-						/* aria-controls="responsive-navbar-nav" */ aria-controls="basic-navbar-nav"
-					/>
+					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-nav-dropdown">
 						<Nav className="m-auto my-2 my-lg-0">
 							<Nav.Link
@@ -66,19 +70,20 @@ const Header = () => {
 								TOP FILMER
 							</Nav.Link>
 							<NavDropdown
+								key={isOpen.toString()}
 								id="navbarScrollingDropdown"
 								className="text-white link-text-custom"
 								title="GENRES"
+								show={isOpen}
+								onClick={handleClick}
 							>
 								{genreLinks?.genres.map((genre) => (
 									<NavDropdown.Item
 										key={genre.id}
 										as={NavLink}
-										state={{ genreTitle: genre.name }}
 										to={`/filmer/kategori/${genre.id}`}
 										id="collasible-nav-dropdown"
 										className="custom-active nav-drop-items text-white link-text-custom"
-										eventKey={genre.id}
 									>
 										{genre.name}
 									</NavDropdown.Item>
