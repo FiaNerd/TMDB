@@ -28,8 +28,10 @@ const Header = () => {
 						TMDB{" "}
 					</Navbar.Brand>
 
-					<Navbar.Toggle aria-controls="responsive-navbar-nav" />
-					<Navbar.Collapse id="responsive-navbar-nav">
+					<Navbar.Toggle
+						/* aria-controls="responsive-navbar-nav" */ aria-controls="basic-navbar-nav"
+					/>
+					<Navbar.Collapse id="basic-nav-dropdown">
 						<Nav className="m-auto my-2 my-lg-0">
 							<Nav.Link
 								as={NavLink}
@@ -49,7 +51,7 @@ const Header = () => {
 							</Nav.Link>
 							<Nav.Link
 								as={NavLink}
-								to="#action1"
+								to="/movies"
 								className="text-white link-text-custom active"
 								eventKey={2}
 							>
@@ -57,7 +59,7 @@ const Header = () => {
 							</Nav.Link>
 							<Nav.Link
 								as={NavLink}
-								to="#action2"
+								to="/movies"
 								className="text-white link-text-custom active"
 								eventKey={3}
 							>
@@ -76,7 +78,7 @@ const Header = () => {
 										to={`/movies/${genre.id}`}
 										id="collasible-nav-dropdown"
 										className="custom-active nav-drop-items text-white link-text-custom"
-										eventKey={3}
+										eventKey={genre.id}
 									>
 										{genre.name}
 									</NavDropdown.Item>
