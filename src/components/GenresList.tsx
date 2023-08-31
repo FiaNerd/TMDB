@@ -1,6 +1,7 @@
 import { Carousel } from "react-responsive-carousel"
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import useGenreMovies from "../hooks/useGenreMovies"
+import { Nav } from "react-bootstrap"
 
 const Genres = () => {
 	const { data: genresMovies, isError: genreError } = useGenreMovies()
@@ -24,13 +25,16 @@ const Genres = () => {
 				>
 					{genresMovies?.genres.map((genre) => (
 						<div key={genre.id}>
-							<Link
-								to={`/filmer/kategori/${genre.id}`}
-								state={{ genreTitle: genre.name }}
-								className=" text-white genre-link-custom active"
-							>
-								{genre.name}
-							</Link>
+							<Nav>
+								<Nav.Link
+									as={NavLink}
+									to={`/filmer/kategori/${genre.id}`}
+									state={{ genreTitle: genre.name }}
+									className=" text-white genre-link-custom active"
+								>
+									{genre.name}
+								</Nav.Link>
+							</Nav>
 						</div>
 					))}
 				</Carousel>
@@ -40,6 +44,3 @@ const Genres = () => {
 }
 
 export default Genres
-function useRouteMatch(arg0: string) {
-	throw new Error("Function not implemented.")
-}

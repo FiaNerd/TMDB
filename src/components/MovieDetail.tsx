@@ -1,5 +1,5 @@
 const MovieDetail = () => {
-	return <div>{/* Din komponentinnehåll här */}</div>
+	return <div>Movie Detail</div>
 }
 
 export default MovieDetail

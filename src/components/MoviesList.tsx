@@ -1,4 +1,5 @@
-import { Card, Nav, NavLink } from "react-bootstrap"
+import { Card, Nav } from "react-bootstrap"
+import { NavLink } from "react-router-dom"
 import { ResultMovies } from "../types/MoviesAPI.types"
 
 interface IProps {
@@ -7,27 +8,26 @@ interface IProps {
 
 const MoviesList = ({ movies }: IProps) => {
 	return (
-		<>
-			<p>{movies.total_results} filmer väntar på dig</p>
+		<div className="genre-card-container mb-5">
+			<h1 className="title mt-5 mb-2">Filmer</h1>
+			<p>{movies.total_results} filmer filmer väntar på dig</p>
 
 			<div className="genre-card-wrapper">
 				{movies?.results.map((movie) => (
-					<>
-						<Card key={movie.id}>
-							<Nav.Link as={NavLink} to={`#`}>
-								<Card.Img
-									variant="top"
-									src={`https://image.tmdb.org/t/p/w200${movie.poster_path}?language=se-SV&include_image_language=se,null`}
-									alt={movie.title}
-									className="card-image"
-								/>
-							</Nav.Link>
-						</Card>
-					</>
+					<Card key={movie.id}>
+						<Nav.Link as={NavLink} to={`/film-detaljer/${movie.id}`}>
+							<Card.Img
+								variant="top"
+								src={`https://image.tmdb.org/t/p/w200${movie.poster_path}?language=se-SV&include_image_language=se,null`}
+								alt={movie.title}
+								className="card-image"
+							/>
+						</Nav.Link>
+					</Card>
 				))}
 			</div>
 			{/* <PaginationContainer totalPages={totalPages} /> */}
-		</>
+		</div>
 	)
 }
 

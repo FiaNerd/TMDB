@@ -45,7 +45,7 @@ const MoviesByGenrePage = () => {
 				{moviesAccordingToGenre?.map((movie) => (
 					<>
 						<Card key={movie.id}>
-							<Nav.Link as={NavLink} to={`/film-detalj/${movie.id}`}>
+							<Nav.Link as={NavLink} to={`/film-detaljer/${movie.id}`}>
 								<Card.Img
 									variant="top"
 									src={`https://image.tmdb.org/t/p/w200${movie.poster_path}?language=se-SV&include_image_language=se,null`}

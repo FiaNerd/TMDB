@@ -9,16 +9,19 @@ import PageNotFound from "./pages/PageNotFound"
 import MoviesByGenrerPage from "./pages/MoviesByGenrerPage"
 import "./assets/App.scss"
 import MoviesPage from "./pages/MoviesPage"
+import DetailsPage from "./pages/DetailPage"
 
 const App = () => {
 	return (
 		<>
 			<Header />
 			<LoadingSpinner />
+
 			<Container className="content-container">
 				<Routes>
 					<Route path="/" element={<HomePage />} />
 					<Route path="/filmer/:category" element={<MoviesPage />} />
+					<Route path="/film-detaljer/:filmId" element={<DetailsPage />} />
 					<Route path="/filmer/kategori/:id" element={<MoviesByGenrerPage />} />
 					<Route path="*" element={<PageNotFound />} />
 				</Routes>
