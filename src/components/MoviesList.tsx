@@ -9,13 +9,13 @@ const MoviesList = ({ movies }: IProps) => {
 	return (
 		<div className="genre-card-container mb-5">
 			<h1 className="title mt-5 mb-2">Filmer</h1>
-			<p>{movies.total_results} fillmer filmer väntar på dig</p>
+			<p>{movies.total_results} filmer filmer väntar på dig</p>
 
 			<div className="genre-card-wrapper">
 				{movies?.results.map((movie) => (
 					<>
 						<Card key={movie.id}>
-							<Nav.Link as={NavLink} to={`/movie-detail/${movie.id}`}>
+							<Nav.Link as={NavLink} to={`#`}>
 								<Card.Img
 									variant="top"
 									src={`https://image.tmdb.org/t/p/w200${movie.poster_path}?language=se-SV&include_image_language=se,null`}

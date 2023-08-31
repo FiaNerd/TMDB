@@ -25,7 +25,7 @@ const Genres = () => {
 					{genresMovies?.genres.map((genre) => (
 						<div key={genre.id}>
 							<Link
-								to={`/movies/${genre.id}`}
+								to={`/filmer/kategori/${genre.id}`}
 								state={{ genreTitle: genre.name }}
 								className="text-white link-text-custom active"
 							>

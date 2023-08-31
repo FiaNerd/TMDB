@@ -4,8 +4,8 @@ import Form from "react-bootstrap/Form"
 import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
 import NavDropdown from "react-bootstrap/NavDropdown"
-import { NavLink } from "react-router-dom"
 import useGenreMovies from "../../hooks/useGenreMovies"
+import { NavLink } from "react-router-dom"
 
 const Header = () => {
 	const { data: genreLinks } = useGenreMovies()
@@ -43,7 +43,7 @@ const Header = () => {
 							</Nav.Link>
 							<Nav.Link
 								as={NavLink}
-								to="/movies"
+								to="/filmer/bio-aktuellt"
 								className="text-white link-text-custom active"
 								eventKey={1}
 							>
@@ -51,7 +51,7 @@ const Header = () => {
 							</Nav.Link>
 							<Nav.Link
 								as={NavLink}
-								to="/movies"
+								to="/filmer/popular"
 								className="text-white link-text-custom active"
 								eventKey={2}
 							>
@@ -59,7 +59,7 @@ const Header = () => {
 							</Nav.Link>
 							<Nav.Link
 								as={NavLink}
-								to="/movies"
+								to="/filmer/top"
 								className="text-white link-text-custom active"
 								eventKey={3}
 							>
@@ -75,7 +75,7 @@ const Header = () => {
 										key={genre.id}
 										as={NavLink}
 										state={{ genreTitle: genre.name }}
-										to={`/movies/${genre.id}`}
+										to={`/filmer/kategori/${genre.id}`}
 										id="collasible-nav-dropdown"
 										className="custom-active nav-drop-items text-white link-text-custom"
 										eventKey={genre.id}
