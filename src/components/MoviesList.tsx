@@ -1,6 +1,5 @@
 import { Card, Nav, NavLink } from "react-bootstrap"
 import { ResultMovies } from "../types/MoviesAPI.types"
-import { useParams } from "react-router-dom"
 
 interface IProps {
 	movies: ResultMovies
