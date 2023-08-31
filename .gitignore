@@ -32,3 +32,6 @@ obj/
 # production
 /**/build
 
+
+# Local Netlify folder
+.netlify
