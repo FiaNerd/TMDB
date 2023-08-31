@@ -1,5 +1,6 @@
 import { Card, Nav, NavLink } from "react-bootstrap"
 import { ResultMovies } from "../types/MoviesAPI.types"
+import { useParams } from "react-router-dom"
 
 interface IProps {
 	movies: ResultMovies
@@ -7,8 +8,8 @@ interface IProps {
 
 const MoviesList = ({ movies }: IProps) => {
 	return (
-		<div className="genre-card-container mb-5">
-			<p>{movies.total_results} filmer filmer väntar på dig</p>
+		<>
+			<p>{movies.total_results} filmer väntar på dig</p>
 
 			<div className="genre-card-wrapper">
 				{movies?.results.map((movie) => (
@@ -27,7 +28,7 @@ const MoviesList = ({ movies }: IProps) => {
 				))}
 			</div>
 			{/* <PaginationContainer totalPages={totalPages} /> */}
-		</div>
+		</>
 	)
 }
 

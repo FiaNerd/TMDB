@@ -8,7 +8,6 @@ const Genres = () => {
 	if (genreError) {
 		return <p>Error</p>
 	}
-
 	return (
 		<>
 			<h1>GENRES</h1>
@@ -28,7 +27,7 @@ const Genres = () => {
 							<Link
 								to={`/filmer/kategori/${genre.id}`}
 								state={{ genreTitle: genre.name }}
-								className="text-white link-text-custom active"
+								className=" text-white genre-link-custom active"
 							>
 								{genre.name}
 							</Link>
@@ -41,3 +40,6 @@ const Genres = () => {
 }
 
 export default Genres
+function useRouteMatch(arg0: string) {
+	throw new Error("Function not implemented.")
+}

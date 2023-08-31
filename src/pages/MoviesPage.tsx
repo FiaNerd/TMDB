@@ -39,10 +39,10 @@ const MoviesPage = () => {
 	}
 
 	return (
-		<>
-			<p>hej</p>
+		<div className="genre-card-container mb-5 mt-5">
+			<h1>{category}</h1>
 			<MoviesList movies={movieData} />
-		</>
+		</div>
 	)
 }
 
