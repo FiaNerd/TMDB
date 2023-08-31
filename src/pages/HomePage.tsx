@@ -27,13 +27,17 @@ const HomePage = () => {
 			<Hero />
 			<div className="main-container">
 				<Genres />
-				<h1 className="title mb-2">20 BIO AKTUELLA FILMER</h1>
+				<h1 className="title mb-2">
+					{currentCinemaMovies.results.length} BIO AKTUELLA FILMER
+				</h1>
 				<CardSlider movies={currentCinemaMovies} />
 
-				<h1 className="title mb-2">20 POPULÄRA FILMER</h1>
+				<h1 className="title mb-2">
+					{popularMovies.results.length} POPULÄRA FILMER
+				</h1>
 				<CardSlider movies={popularMovies} />
 
-				<h1 className="title mb-2">20 TOPP FILMER</h1>
+				<h1 className="title mb-2">{topMovies.results.length} TOPP FILMER</h1>
 				<CardSlider movies={topMovies} />
 			</div>
 		</>

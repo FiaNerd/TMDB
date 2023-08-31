@@ -3,6 +3,7 @@ import { NavLink, useLocation, useParams } from "react-router-dom"
 import { Card, Nav } from "react-bootstrap"
 import PaginationContainer from "../components/Pagination"
 import useGenreMoviesByPage from "../hooks/useGenreMoviesByPage"
+import useGenreMovies from "../hooks/useGenreMovies"
 
 const MoviesByGenrePage = () => {
 	const location = useLocation()
@@ -14,10 +15,11 @@ const MoviesByGenrePage = () => {
 		genreId,
 		currentPage,
 	)
+	const { data: genresMovies } = useGenreMovies()
+
+	const genreTitle = genresMovies?.genres.find((genre) => genre.id === genreId)
 
 	const moviesAccordingToGenre = pagesData?.data.results
-
-	const genreTitle = location.state?.genreTitle
 
 	const totalResults = pagesData?.data.total_results
 
@@ -36,14 +38,14 @@ const MoviesByGenrePage = () => {
 
 	return (
 		<div className="genre-card-container mb-5">
-			<h1 className="title mt-5 mb-2">{genreTitle}</h1>
+			<h1 className="title mt-5 mb-2">{genreTitle?.name}</h1>
 			<p>{totalResults} filmer väntar på dig</p>
 
 			<div className="genre-card-wrapper">
 				{moviesAccordingToGenre?.map((movie) => (
 					<>
 						<Card key={movie.id}>
-							<Nav.Link as={NavLink} to={`/filmer/kategori/${movie.id}`}>
+							<Nav.Link as={NavLink} to={`/film-detalj/${movie.id}`}>
 								<Card.Img
 									variant="top"
 									src={`https://image.tmdb.org/t/p/w200${movie.poster_path}?language=se-SV&include_image_language=se,null`}

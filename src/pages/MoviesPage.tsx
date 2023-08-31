@@ -16,7 +16,7 @@ const MoviesPage = () => {
 
 	const { data: topMovies, isError: topMoviesError } = useTopMovies()
 
-	if (currentCinemaError || popularMoviesError || topMoviesError || movieData) {
+	if (currentCinemaError || popularMoviesError || topMoviesError) {
 		return <p>Error</p>
 	}
 
@@ -40,6 +40,7 @@ const MoviesPage = () => {
 
 	return (
 		<>
+			<p>hej</p>
 			<MoviesList movies={movieData} />
 		</>
 	)

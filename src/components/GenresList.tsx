@@ -3,14 +3,15 @@ import { Link } from "react-router-dom"
 import useGenreMovies from "../hooks/useGenreMovies"
 
 const Genres = () => {
-	const { data: genresMovies, isError: fetchGenre } = useGenreMovies()
+	const { data: genresMovies, isError: genreError } = useGenreMovies()
 
-	if (fetchGenre) return <p>Error</p>
+	if (genreError) {
+		return <p>Error</p>
+	}
 
 	return (
 		<>
 			<h1>GENRES</h1>
-			<p></p>
 			<div className="carosuel-container">
 				<Carousel
 					showThumbs={false}
