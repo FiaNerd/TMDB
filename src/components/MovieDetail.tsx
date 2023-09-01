@@ -1,13 +1,26 @@
+import { useState, useEffect } from "react"
 import { Image, Nav } from "react-bootstrap"
 import { NavLink, useParams } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar } from "@fortawesome/free-solid-svg-icons"
 
 import useMovieDetail from "../hooks/useMovieDetail"
-import { useState } from "react"
 
 const MovieDetail = () => {
 	const [readMore, setReadMore] = useState(false)
+	const [isMobile, setIsMobile] = useState(window.innerWidth <= 640)
+
+	useEffect(() => {
+		const handleResize = () => {
+			setIsMobile(window.innerWidth <= 640)
+		}
+
+		window.addEventListener("resize", handleResize)
+
+		return () => {
+			window.removeEventListener("resize", handleResize)
+		}
+	}, [])
 
 	const movieId = Number(useParams().filmId)
 
@@ -58,7 +71,7 @@ const MovieDetail = () => {
 				</div>
 			</div>
 
-			<div className="info-wrapper mb-3">
+			<div className="info-wrapper mb-4">
 				{details?.genres.map((genre) => (
 					<Nav>
 						<Nav.Link
@@ -73,7 +86,7 @@ const MovieDetail = () => {
 				))}
 			</div>
 
-			<div className="info-movie-container mb-3">
+			<div className="info-movie-container mb-5">
 				<p className="text-rate-language">
 					<FontAwesomeIcon icon={faStar} className="star" />
 					{details.vote_average}
@@ -91,18 +104,18 @@ const MovieDetail = () => {
 					className="image-detail"
 				/>
 
-				<div className=" mb-5">
-					<h5 className="overview-title ">Sammanfattning</h5>
-					{readMore ? (
-						<p className="movie-info ">{movieOverview}</p>
-					) : (
-						<p className="movie-info ">{movieOverview.slice(0, 160)}</p>
-					)}
-					{movieOverview.length > 160 && (
+				<div className="overview-container mb-5">
+					<h5 className="overview-title">Sammanfattning</h5>
+					<p className="movie-info">
+						{readMore
+							? movieOverview
+							: movieOverview.slice(0, isMobile ? 160 : undefined)}
+					</p>
+					{isMobile && movieOverview.length > 160 && (
 						<button
 							type="button"
 							onClick={handleToggleReadMore}
-							className="btn-read-more"
+							className={`btn-read-more ${readMore ? "hide" : ""}`}
 						>
 							{readMore ? "Visa mindre" : "Läs mer"}
 						</button>
