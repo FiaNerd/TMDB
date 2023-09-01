@@ -95,6 +95,31 @@
 }
 
 /* CREDITS cards */
+.title-movie-credit {
+	color: #ededed;
+}
+
+.profile-avatar {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(7em, 1fr));
+	max-width: 50em;
+}
+
+.img-profile-avatar {
+	width: 5em;
+	height: 5em;
+	border-radius: 50%;
+	display: block;
+	box-shadow:
+		0 4px 8px 0 rgba(0, 0, 0, 0.2),
+		0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profile-text {
+	text-align: center;
+	font-size: 0.7rem;
+	color: #898989;
+}
 
 /* Small devices such as large phones (640px and up) */
 @media only screen and (min-width: 40em) {
@@ -103,6 +128,17 @@
 	}
 	.image-detail {
 		width: 15em;
+	}
+
+	.profile-avatar {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+		max-width: 60em;
+		margin: 0 auto;
+		.img-profile-avatar {
+			width: 7em;
+			height: 7em;
+		}
 	}
 }
 

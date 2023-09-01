@@ -1,17 +1,42 @@
-import { useParams } from "react-router-dom"
+import { NavLink, useParams } from "react-router-dom"
 import useMovieDetail from "../hooks/useMovieDetail"
+import { Col, Container, Nav, Row, Image } from "react-bootstrap"
 
 const CreditsAvatar = () => {
 	const movieId = Number(useParams().filmId)
 
 	const { data: details, isError: errorCredits } = useMovieDetail(movieId)
 
-	console.log(details?.credits.cast.map((test) => test.name))
-
 	if (errorCredits) {
 		return <p>Error</p>
 	}
-	return <></>
+	return (
+		<>
+			<h5 className="title-movie-credit text-center mb-2">Medverkanden</h5>
+			<div className="profile-avatar">
+				{details?.credits.cast.map((credit) => {
+					return (
+						<Container key={credit.id} className="profile-container" fluid>
+							<Row>
+								<Col className="mx-auto">
+									<Nav>
+										<Nav.Link as={NavLink} to={"#"}>
+											<Image
+												src={`https://image.tmdb.org/t/p/w200${credit.profile_path}?language=se-SV&include_image_language=se,null`}
+												alt={credit.name}
+												className="img-profile-avatar"
+											/>
+											<p className="profile-text">{credit.name}</p>
+										</Nav.Link>
+									</Nav>
+								</Col>
+							</Row>
+						</Container>
+					)
+				})}
+			</div>
+		</>
+	)
 }
 
 export default CreditsAvatar
