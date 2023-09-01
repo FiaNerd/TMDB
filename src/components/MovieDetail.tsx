@@ -1,11 +1,18 @@
-import { Image } from "react-bootstrap"
-import { useParams } from "react-router-dom"
+import { Image, Nav } from "react-bootstrap"
+import { NavLink, useParams } from "react-router-dom"
 import useMovieDetail from "../hooks/useMovieDetail"
+import { useState } from "react"
 
 const MovieDetail = () => {
+	const [readMore, setReadMore] = useState(false)
+
 	const movieId = Number(useParams().filmId)
 
 	const { data: details, isError: detailsError } = useMovieDetail(movieId)
+
+	const handleToggleReadMore = () => {
+		setReadMore(!readMore)
+	}
 
 	const movieTitle = details?.original_title
 
@@ -21,6 +28,10 @@ const MovieDetail = () => {
 
 	if (detailsError) {
 		return <p>Error</p>
+	}
+
+	if (!movieOverview) {
+		return
 	}
 
 	return (
@@ -44,11 +55,18 @@ const MovieDetail = () => {
 				</div>
 			</div>
 
-			<div className="info-wrapper">
+			<div className="info-wrapper mb-3">
 				{details?.genres.map((genre) => (
-					<p className="genre-info" key={genre.id}>
-						{genre.name}
-					</p>
+					<Nav>
+						<Nav.Link
+							as={NavLink}
+							to={`/filmer/kategori/${genre.id}`}
+							state={{ genreTitle: genre.name }}
+							className=" text-white genre-info active"
+						>
+							{genre.name}
+						</Nav.Link>
+					</Nav>
 				))}
 			</div>
 
@@ -61,7 +79,23 @@ const MovieDetail = () => {
 
 				<div className="mb-5">
 					<h5 className="overview-container px-2">Sammanfattning</h5>
-					<p className="movie-info px-2">{movieOverview}</p>
+
+					{readMore ? (
+						<p className="movie-info px-2 text-white">{movieOverview}</p>
+					) : (
+						<p className="movie-info px-2 text-white">
+							{movieOverview.slice(0, 165)}
+						</p>
+					)}
+					{movieOverview.length > 165 && (
+						<button
+							type="button"
+							onClick={handleToggleReadMore}
+							className="read-more-button"
+						>
+							{readMore ? "Visa mindre" : "Läs mer"}
+						</button>
+					)}
 				</div>
 			</div>
 		</>
