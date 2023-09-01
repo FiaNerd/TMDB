@@ -36,7 +36,13 @@ const MovieDetail = () => {
 				/>
 			</div>
 
-			<h1 className="title-movie">{movieTitle}</h1>
+			<div className="title-container mb-3">
+				<h1 className="title-movie">{movieTitle}</h1>
+				<div className="info-relese-wrapper">
+					<p className="genre-info">{movieReleaseDate}</p>
+					<p className="genre-info">{movieLength}</p>
+				</div>
+			</div>
 
 			<div className="detail-container mb-5">
 				<Image
@@ -44,11 +50,8 @@ const MovieDetail = () => {
 					alt={details?.title}
 					className="image-detail"
 				/>
+
 				<div className="info-wrapper">
-					<p className="genre-info">{movieReleaseDate}</p>
-
-					<p className="genre-info">{movieLength}</p>
-
 					{details?.genres.map((genre) => (
 						<p className="genre-info" key={genre.id}>
 							{genre.name}
@@ -57,8 +60,8 @@ const MovieDetail = () => {
 				</div>
 			</div>
 			<div className="mb-5">
-				<h3 className="px-2">Sammanfattning</h3>
-				<p className="px-2">{movieOverview}</p>
+				<h5 className="overview-container px-2">Sammanfattning</h5>
+				<p className="genre-info px-2">{movieOverview}</p>
 			</div>
 		</>
 	)
