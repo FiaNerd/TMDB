@@ -20,22 +20,26 @@
 		gap: 1em;
 	}
 }
-.genre-info {
+.movie-info {
 	font-size: 0.875rem;
 	margin-bottom: 0;
 }
 
+.info-wrapper {
+	display: flex;
+	gap: 0.7em;
+	margin: 0 auto;
+
+	.genre-info {
+		font-size: 1rem;
+		justify-content: end;
+	}
+}
+
 .detail-container {
 	display: grid;
-	grid-template-rows: auto 1fr;
-	gap: 1em;
-
-	.info-wrapper {
-		display: flex;
-		flex-direction: row;
-		gap: 0.5em;
-		margin: 0 auto;
-	}
+	grid-template-columns: auto 1fr;
+	gap: 0.7em;
 }
 .overview-container {
 	color: #ededed;
