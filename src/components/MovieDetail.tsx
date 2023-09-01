@@ -3,8 +3,8 @@ import { Image, Nav } from "react-bootstrap"
 import { NavLink, useParams } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar } from "@fortawesome/free-solid-svg-icons"
-
 import useMovieDetail from "../hooks/useMovieDetail"
+import CreditsAvatar from "./CreditsAvatar"
 
 const MovieDetail = () => {
 	const [readMore, setReadMore] = useState(false)
@@ -122,6 +122,7 @@ const MovieDetail = () => {
 					)}
 				</div>
 			</div>
+			<CreditsAvatar />
 		</>
 	)
 }
