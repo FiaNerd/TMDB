@@ -4,11 +4,15 @@ import { NavLink, useParams } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar } from "@fortawesome/free-solid-svg-icons"
 import useMovieDetail from "../hooks/useMovieDetail"
-import CreditsAvatar from "./CreditsAvatar"
+import CreditAvatar from "./CreditsAvatar"
 
 const MovieDetail = () => {
 	const [readMore, setReadMore] = useState(false)
 	const [isMobile, setIsMobile] = useState(window.innerWidth <= 640)
+
+	const movieId = Number(useParams().filmId)
+
+	const { data: details, isError: detailsError } = useMovieDetail(movieId)
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -21,10 +25,6 @@ const MovieDetail = () => {
 			window.removeEventListener("resize", handleResize)
 		}
 	}, [])
-
-	const movieId = Number(useParams().filmId)
-
-	const { data: details, isError: detailsError } = useMovieDetail(movieId)
 
 	const handleToggleReadMore = () => {
 		setReadMore(!readMore)
@@ -122,7 +122,7 @@ const MovieDetail = () => {
 					)}
 				</div>
 			</div>
-			<CreditsAvatar />
+			<CreditAvatar />
 		</>
 	)
 }
