@@ -1,0 +1,63 @@
+.navbar {
+	position: sticky;
+	top: 0;
+	z-index: 900;
+	background-color: #202020;
+}
+
+.dropdown-menu {
+	display: grid !important;
+	grid-template-columns: 1fr 1fr 1fr !important;
+}
+
+.dropdown-item.active:active {
+	background-color: #121212;
+}
+
+.link-text-custom:hover,
+.link-text-custom:active {
+	color: #cc9503 !important;
+}
+
+/* custom primary search button */
+.btn-outline-primary-custom {
+	color: #ededed;
+	background-color: transparent;
+	border-color: #cc9503;
+	border-width: 0.2em;
+	font-weight: 400;
+}
+
+.btn-outline-primary-custom:hover {
+	color: #1c1c1c;
+	background-color: #cc9503;
+	border-color: #cc9503;
+	transition:
+		color 0.3s,
+		border-color 0.3s;
+}
+
+.btn-outline-primary-custom:focus,
+.btn-outline-primary-custom:focus {
+	box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.131);
+}
+
+.btn-outline-primary-custom.disabled,
+.btn-outline-primary-custom:disabled {
+	color: #c6911e74;
+	background-color: transparent;
+}
+
+.btn-outline-primary-custom:not(:disabled):not(.disabled):active,
+.btn-outline-primary-custom:not(:disabled):not(.disabled).active,
+.show > .btn-outline-primary-custom.dropdown-toggle {
+	color: #1c1c1c;
+	background-color: #cc9503;
+	border-color: #cc9503;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus,
+.btn-outline-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-outline-primary.dropdown-toggle:focus {
+	box-shadow: 0 0 0 0.2rem rgba(235, 226, 131, 0.5);
+}

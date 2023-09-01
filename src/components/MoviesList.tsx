@@ -8,8 +8,7 @@ interface IProps {
 
 const MoviesList = ({ movies }: IProps) => {
 	return (
-		<div className="genre-card-container mb-5">
-			<h1 className="title mt-5 mb-2">Filmer</h1>
+		<div className="genre-card-container">
 			<p>{movies.total_results} filmer filmer väntar på dig</p>
 
 			<div className="genre-card-wrapper">

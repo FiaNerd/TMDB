@@ -11,7 +11,7 @@ const Genres = () => {
 	}
 	return (
 		<>
-			<h1>GENRES</h1>
+			<h1 className="title">GENRES</h1>
 			<div className="carosuel-container">
 				<Carousel
 					showThumbs={false}
