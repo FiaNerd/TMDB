@@ -1,5 +1,8 @@
 import { Image, Nav } from "react-bootstrap"
 import { NavLink, useParams } from "react-router-dom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faStar } from "@fortawesome/free-solid-svg-icons"
+
 import useMovieDetail from "../hooks/useMovieDetail"
 import { useState } from "react"
 
@@ -70,6 +73,17 @@ const MovieDetail = () => {
 				))}
 			</div>
 
+			<div className="info-movie-container mb-3">
+				<p className="text-rate-language">
+					<FontAwesomeIcon icon={faStar} className="star" />
+					{details.vote_average}
+				</p>
+
+				{details.spoken_languages.map((language) => (
+					<p className="text-rate-language">{language.english_name}</p>
+				))}
+			</div>
+
 			<div className="detail-container mb-5">
 				<Image
 					src={`https://image.tmdb.org/t/p/w200${details?.poster_path}?language=se-SV&include_image_language=se,null`}
@@ -77,21 +91,18 @@ const MovieDetail = () => {
 					className="image-detail"
 				/>
 
-				<div className="mb-5">
-					<h5 className="overview-container px-2">Sammanfattning</h5>
-
+				<div className=" mb-5">
+					<h5 className="overview-title ">Sammanfattning</h5>
 					{readMore ? (
-						<p className="movie-info px-2 text-white">{movieOverview}</p>
+						<p className="movie-info ">{movieOverview}</p>
 					) : (
-						<p className="movie-info px-2 text-white">
-							{movieOverview.slice(0, 165)}
-						</p>
+						<p className="movie-info ">{movieOverview.slice(0, 160)}</p>
 					)}
-					{movieOverview.length > 165 && (
+					{movieOverview.length > 160 && (
 						<button
 							type="button"
 							onClick={handleToggleReadMore}
-							className="read-more-button"
+							className="btn-read-more"
 						>
 							{readMore ? "Visa mindre" : "Läs mer"}
 						</button>

@@ -3,7 +3,9 @@ import MovieDetail from "../components/MovieDetail"
 const DetailPage = () => {
 	return (
 		<>
-			<MovieDetail />
+			<div className="main-container">
+				<MovieDetail />
+			</div>
 		</>
 	)
 }

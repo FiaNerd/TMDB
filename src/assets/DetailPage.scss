@@ -39,10 +39,7 @@
 .detail-container {
 	display: grid;
 	grid-template-columns: auto 1fr;
-	gap: 0.7em;
-}
-.overview-container {
-	color: #ededed;
+	gap: 0.9em;
 }
 
 .image-detail {
@@ -50,10 +47,43 @@
 	width: 7em;
 }
 
+.overview-title {
+	color: #ededed;
+}
+
+.btn-read-more {
+	display: flex;
+	justify-content: end;
+	background: none;
+	color: #cc9503;
+	border: none;
+	margin-top: 0.5em;
+}
+
+.info-movie-container {
+	display: flex;
+	flex-direction: row;
+	gap: 0 0.5em;
+	justify-content: flex-end;
+	font-size: 0.875rem;
+	flex-wrap: wrap;
+}
+
+.text-rate-language {
+	margin: 0;
+}
+
+.star {
+	color: #cc9503;
+}
+
 /* Small devices such as large phones (640px and up) */
 @media only screen and (min-width: 40em) {
 	.bg-detail-container {
 		height: 16em;
+	}
+	.image-detail {
+		width: 20em;
 	}
 }
 
