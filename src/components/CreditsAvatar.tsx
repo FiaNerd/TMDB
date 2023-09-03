@@ -13,7 +13,7 @@ const CreditsAvatar = () => {
 
 	return (
 		<>
-			<h5 className="title-movie-credit text-center mb-2">Medverkanden</h5>
+			<h5 className="title-movie-credit text-center mb-3">Medverkanden</h5>
 			<div className="profile-avatar">
 				{details?.credits.cast.map((credit) => {
 					return (

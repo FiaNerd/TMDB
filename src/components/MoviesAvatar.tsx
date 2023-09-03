@@ -5,31 +5,31 @@ import usePersonDetails from "../hooks/usePersonDetails"
 
 const MoviesAvatar = () => {
 	const movieId = Number(useParams().creditId)
-	const { data: moviesAvatar } = usePersonDetails(movieId)
+	const { data: moviesAvatar, isError: errorMovieAvatar } =
+		usePersonDetails(movieId)
 
-	console.log(moviesAvatar?.movie_credits)
-
-	// if (errorCredits) {
-	// 	return <p>Error</p>
-	// }
+	if (errorMovieAvatar) {
+		return <p>Error</p>
+	}
 
 	return (
 		<>
-			<h5 className="title-movie-credit text-center mb-2">Medverkanden</h5>
-			<div className="profile-avatar">
+			<h5 className="title-movie-credit text-center mb-3">
+				Filmer med {moviesAvatar?.name}
+			</h5>
+			<div className="movie-avatar">
 				{moviesAvatar?.movie_credits.cast.map((credit) => {
 					return (
 						<Container key={credit.id} className="profile-container" fluid>
 							<Row>
-								<Col className="mx-auto">
+								<Col className="d-flex mx-auto">
 									<Nav>
 										<Link to={`/film-detaljer/${credit.id}`}>
 											<Image
 												src={`https://image.tmdb.org/t/p/w200${credit.poster_path}?language=se-SV&include_image_language=se,null`}
 												alt={credit.title}
-												className="img-profile-avatar"
+												className="img-movie-avatar"
 											/>
-											<p className="profile-text">{credit.order}</p>
 										</Link>
 									</Nav>
 								</Col>
