@@ -10,7 +10,7 @@ import MoviesByGenrerPage from "./pages/MoviesByGenrerPage"
 import "./assets/App.scss"
 import MoviesPage from "./pages/MoviesPage"
 import DetailsPage from "./pages/DetailPage"
-import CreditDetail from "./components/CreditDetail"
+import CreditDetailPage from "./pages/CreditDetailPage"
 
 const App = () => {
 	return (
@@ -23,7 +23,7 @@ const App = () => {
 					<Route path="/" element={<HomePage />} />
 					<Route path="/filmer/:category" element={<MoviesPage />} />
 					<Route path="/film-detaljer/:filmId" element={<DetailsPage />} />
-					<Route path="/medverkande/:creditId" element={<CreditDetail />} />
+					<Route path="/medverkande/:creditId" element={<CreditDetailPage />} />
 					<Route path="/filmer/kategori/:id" element={<MoviesByGenrerPage />} />
 					<Route path="*" element={<PageNotFound />} />
 				</Routes>

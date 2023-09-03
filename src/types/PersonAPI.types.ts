@@ -13,7 +13,7 @@ export type Person = {
 	place_of_birth: string
 	popularity: string
 	profile_path: string | null
-	movie_credits: Movie_Credits[]
+	movie_credits: Movie_Credits
 }
 
 export type Cast = {
