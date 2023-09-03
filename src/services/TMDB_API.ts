@@ -1,8 +1,8 @@
 import axios from "axios"
 import { ResultMovies } from "../types/MoviesAPI.types"
 import { GenrerResults } from "../types/GenrersAPI.types"
-import { MovieDetail } from "../types/MovieCreditsApi"
-import { Person } from "../types/PersonApi.types"
+import { MovieDetail } from "../types/MovieCreditsAPI"
+import { Person } from "../types/PersonAPI.types"
 
 const BASE_URL = import.meta.env.VITE_TMDB_DATABASE_URL
 const ACCESS_TOKEN = import.meta.env.VITE_TMDB_ACCESS_TOKEN
