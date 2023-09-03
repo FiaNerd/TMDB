@@ -92,3 +92,10 @@ export type SpokenLanguage = {
 	iso_639_1: string
 	name: string
 }
+
+export type IdOfCast = Omit<Cast, "id">
+export type IdOfCrew = Omit<Crew, "id">
+export type IdOfMovieDetail = Omit<MovieDetail, "id">
+export type IdOfCollection = Omit<Cast, "id">
+export type IdOfGenre = Omit<Genre, "id">
+export type IdOfProcuctCompany = Omit<ProductionCompany, "id">

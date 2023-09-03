@@ -5,11 +5,7 @@ import { Col, Container, Nav, Row, Image } from "react-bootstrap"
 const CreditsAvatar = () => {
 	const castId = Number(useParams().filmId)
 
-	console.log(castId)
-
 	const { data: details, isError: errorCredits } = useMovieDetail(castId)
-
-	console.log("Avatar", details?.credits.cast)
 
 	if (errorCredits) {
 		return <p>Error</p>

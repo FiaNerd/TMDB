@@ -1,7 +1,4 @@
-import React, { useState } from "react"
 import MovieDetail from "../components/MovieDetail"
-import CreditDetail from "../components/CreditDetail"
-
 const DetailPage = () => {
 	// const [activeComponent, setActiveComponent] = useState("movie")
 

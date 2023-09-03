@@ -73,3 +73,9 @@ export const getMovieCredits = (movie_id: number) => {
 		`${BASE_URL}/movie/${movie_id}?append_to_response=credits&language=en-US`,
 	)
 }
+
+export const getPerson = (person_id: number) => {
+	return get<MovieDetail>(
+		`${BASE_URL}/person/${person_id}?append_to_response=movie%2Cmovie_credits&language=en-US`,
+	)
+}

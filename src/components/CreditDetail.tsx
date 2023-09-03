@@ -6,8 +6,6 @@ const CreditDetail = () => {
 	const { data: details } = useMovieDetail(castId)
 	console.log(castId)
 
-	console.log("DETAILS credit", details)
-
 	return (
 		<>
 			{details?.credits.cast.map((actor) => (
