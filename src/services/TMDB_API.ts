@@ -2,6 +2,7 @@ import axios from "axios"
 import { ResultMovies } from "../types/MoviesAPI.types"
 import { GenrerResults } from "../types/GenrersAPI.types"
 import { MovieDetail } from "../types/MovieCreditsApi"
+import { Person } from "../types/PersonApi.types"
 
 const BASE_URL = import.meta.env.VITE_TMDB_DATABASE_URL
 const ACCESS_TOKEN = import.meta.env.VITE_TMDB_ACCESS_TOKEN
@@ -75,7 +76,7 @@ export const getMovieCredits = (movie_id: number) => {
 }
 
 export const getPerson = (person_id: number) => {
-	return get<MovieDetail>(
+	return get<Person>(
 		`${BASE_URL}/person/${person_id}?append_to_response=movie%2Cmovie_credits&language=en-US`,
 	)
 }

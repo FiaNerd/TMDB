@@ -1,0 +1,39 @@
+.title-container {
+	display: grid;
+	grid-template-rows: auto 1fr;
+	background-color: rgba(0, 0, 0, 0.6);
+	padding: 0.5em 1em;
+
+	h1.title-person {
+		color: #ffffff;
+	}
+
+	.info-know-for-wrapper {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 1em;
+	}
+}
+.known-for-text {
+	font-size: 0.875rem;
+	margin-bottom: 0;
+}
+
+.person-container {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 0.9em;
+}
+
+.image-person-detail {
+	margin: 0 auto;
+	width: 9em;
+}
+
+.overview-person-title {
+	color: #ededed;
+}
+.person-info {
+	font-size: 0.875rem;
+	margin-bottom: 0;
+}
