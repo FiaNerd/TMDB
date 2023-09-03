@@ -115,10 +115,15 @@
 		0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.nav-img-avatar {
+	text-decoration: none;
+}
+
 .profile-text {
 	text-align: center;
 	font-size: 0.7rem;
 	color: hsl(0, 0%, 54%);
+	text-decoration: none;
 }
 
 /* Small devices such as large phones (640px and up) */

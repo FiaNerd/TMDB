@@ -54,13 +54,12 @@ const CreditDetail = () => {
 			</div>
 
 			<div className="person-container mb-5">
-				<Image
-					src={`https://image.tmdb.org/t/p/w200${detailsPerson?.profile_path}?language=se-SV&include_image_language=se,null`}
-					alt={detailsPerson?.name}
-					className="image-person-detail"
-				/>
-
-				<div className="person-container mb-5">
+				<div className="image-container mb-4">
+					<Image
+						src={`https://image.tmdb.org/t/p/w200${detailsPerson?.profile_path}?language=se-SV&include_image_language=se,null`}
+						alt={detailsPerson?.name}
+						className="image-person-detail"
+					/>
 					<div className="person-info-wrapper">
 						<h6 className="person-title mb-3">Om {personName}</h6>
 						<p className="person-info">Född: {detailsPerson.birthday}</p>
@@ -68,28 +67,29 @@ const CreditDetail = () => {
 						<p className="person-info"> Kön: {personGender}</p>
 					</div>
 				</div>
-			</div>
-			<div className="biography-container mb-5">
-				<h6 className="person-title">Biografi</h6>
-				<p className="person-info">
-					{readMore
-						? personBiography
-						: isMobile && personBiography.length > 200
-						? personBiography.slice(0, 200)
-						: isDesktop && personBiography.length > 400
-						? personBiography.slice(0, 400)
-						: personBiography}
-				</p>
-				{(isMobile || isDesktop) &&
-					personBiography.length > (isMobile ? 200 : 400) && (
-						<button
-							type="button"
-							onClick={handleToggleReadMore}
-							className={`btn-read-more ${readMore ? "hide" : ""}`}
-						>
-							{readMore ? "Visa mindre" : "Läs mer"}
-						</button>
-					)}
+
+				<div className="biography-container mb-5">
+					<h6 className="person-title">Biografi</h6>
+					<p className="person-info">
+						{readMore
+							? personBiography
+							: isMobile && personBiography.length > 200
+							? personBiography.slice(0, 200)
+							: isDesktop && personBiography.length > 400
+							? personBiography.slice(0, 400)
+							: personBiography}
+					</p>
+					{(isMobile || isDesktop) &&
+						personBiography.length > (isMobile ? 200 : 400) && (
+							<button
+								type="button"
+								onClick={handleToggleReadMore}
+								className={`btn-read-more ${readMore ? "hide" : ""}`}
+							>
+								{readMore ? "Visa mindre" : "Läs mer"}
+							</button>
+						)}
+				</div>
 			</div>
 
 			<MoviesAvatar />

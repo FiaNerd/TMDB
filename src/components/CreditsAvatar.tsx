@@ -21,7 +21,10 @@ const CreditsAvatar = () => {
 							<Row>
 								<Col className="mx-auto">
 									<Nav>
-										<Link to={`/medverkande/${credit.id}`}>
+										<Link
+											className="nav-img-avatar"
+											to={`/medverkande/${credit.id}`}
+										>
 											<Image
 												src={`https://image.tmdb.org/t/p/w200${credit.profile_path}?language=se-SV&include_image_language=se,null`}
 												alt={credit.name}

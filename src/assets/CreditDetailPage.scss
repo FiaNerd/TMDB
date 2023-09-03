@@ -19,14 +19,15 @@
 	margin-bottom: 0;
 }
 
-.person-container {
-	display: grid;
-	grid-template-columns: auto 1fr;
-	gap: 0.9em;
-}
 .person-info-wrapper {
 	display: flex;
 	flex-direction: column;
+	margin: 0 auto;
+}
+.image-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }
 
 .image-person-detail {
@@ -37,6 +38,8 @@
 .biography-container {
 	display: flex;
 	flex-direction: column;
+	max-width: 30em;
+	margin: 0 auto;
 }
 
 .person-title {
@@ -49,8 +52,6 @@
 }
 
 /* Avatar Movies */
-
-/* CREDITS cards */
 .title-movie-credit {
 	color: #ededed;
 }
@@ -58,58 +59,48 @@
 .movie-avatar {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(7em, 1fr));
-	max-width: 50em;
 	gap: 1.2em 0;
 }
 
 .img-movie-avatar {
 	width: 6em;
-	margin: 0 auto;
 	box-shadow:
 		0 4px 8px 0 rgba(0, 0, 0, 0.2),
 		0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+	border-radius: 0.3125em;
 }
 
 .profile-text {
 	text-align: center;
 	font-size: 0.7rem;
-	color: hsl(0, 0%, 54%);
+	color: #8e8e8e;
 }
 
 /* Small devices such as large phones (640px and up) */
 @media only screen and (min-width: 40em) {
-	.image-detail {
-		width: 15em;
+	.image-container {
+		flex-direction: column;
+		gap: 1em;
 	}
-
 	.movie-avatar {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
-		max-width: 60em;
 		margin: 0 auto;
-		.img-profile-avatar {
-			width: 7em;
-			height: 7em;
-		}
+		gap: 1em;
+	}
+	.img-movie-avatar {
+		width: 9em;
+	}
+	.image-person-detail {
+		width: 15em;
 	}
 }
 
 /* Medium devices such as tablets (768px and up) */
 @media only screen and (min-width: 48em) {
-	.bg-detail-container {
-		height: 22em;
-	}
-	.detail-container {
-		display: grid;
-		grid-template-columns: 0.5fr 1fr;
-		margin: 0 auto;
-		max-width: 50em;
-	}
 }
 
 /* Large devices such as laptops (1024px and up) */
 @media only screen and (min-width: 64em) {
-	.bg-detail-container {
-		height: 26em;
-	}
 }

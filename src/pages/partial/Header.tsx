@@ -84,6 +84,7 @@ const Header = () => {
 										to={`/filmer/kategori/${genre.id}`}
 										id="collasible-nav-dropdown"
 										className="custom-active nav-drop-items text-white link-text-custom"
+										eventKey={4}
 									>
 										{genre.name}
 									</NavDropdown.Item>
