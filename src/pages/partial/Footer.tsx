@@ -17,7 +17,7 @@ const Footer = () => {
 					</p>
 				</div>
 			</div>
-			<Link to="/filmer/popular">
+			<Link to="/filmer/popular" className="nav-link">
 				<Button className="btn-footer">POPULAR MOVIES</Button>
 			</Link>
 			<div className="footer-copy">
