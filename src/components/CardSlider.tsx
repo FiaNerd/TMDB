@@ -28,7 +28,11 @@ const CardSlider = ({ movies }: IProps) => {
 						<Nav>
 							<Nav.Link as={NavLink} to={`/film-detaljer/${movie.id}`}>
 								<Image
-									src={`https://image.tmdb.org/t/p/w200${movie.poster_path}?language=se-SV&include_image_language=se,null`}
+									src={
+										movie.poster_path
+											? `https://image.tmdb.org/t/p/w200${movie.poster_path}?language=se-SV&include_image_language=se,null`
+											: "../public/images/movie_placeholder.jpg"
+									}
 									alt={movie.title}
 								/>
 							</Nav.Link>

@@ -5,11 +5,11 @@ import usePersonDetails from "../hooks/usePersonDetails"
 
 const MoviesAvatar = () => {
 	const movieId = Number(useParams().creditId)
-	const { data: moviesAvatar, isError: errorMovieAvatar } =
+	const { data: moviesAvatar, isError: movieAvatarError } =
 		usePersonDetails(movieId)
 
-	if (errorMovieAvatar) {
-		return <p>Error</p>
+	if (movieAvatarError) {
+		return <h3>Could not find any movies for this person</h3>
 	}
 
 	return (
@@ -24,12 +24,20 @@ const MoviesAvatar = () => {
 							<Row>
 								<Col className="d-flex mx-auto">
 									<Nav>
-										<Link to={`/film-detaljer/${credit.id}`}>
+										<Link
+											to={`/film-detaljer/${credit.id}`}
+											className="nav-img-avatar"
+										>
 											<Image
-												src={`https://image.tmdb.org/t/p/w200${credit.poster_path}?language=se-SV&include_image_language=se,null`}
+												src={
+													credit.poster_path
+														? `https://image.tmdb.org/t/p/w200${credit.poster_path}?language=se-SV&include_image_language=se,null`
+														: "../../images/movie_placeholder.png"
+												}
 												alt={credit.title}
 												className="img-movie-avatar"
 											/>
+											<p className="movie-title">{credit.title}</p>
 										</Link>
 									</Nav>
 								</Col>

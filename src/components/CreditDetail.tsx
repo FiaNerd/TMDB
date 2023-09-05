@@ -3,13 +3,14 @@ import { useParams } from "react-router-dom"
 import usePersonDetails from "../hooks/usePersonDetails"
 import { useEffect, useState } from "react"
 import MoviesAvatar from "./MoviesAvatar"
+import PageNotFound from "../pages/PageNotFound"
 
 const CreditDetail = () => {
 	const [readMore, setReadMore] = useState(false)
 	const [isMobile, setIsMobile] = useState(window.innerWidth <= 640)
 	const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 640)
 	const castId = Number(useParams().creditId)
-	const { data: detailsPerson } = usePersonDetails(castId)
+	const { data: detailsPerson, isError: personError } = usePersonDetails(castId)
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -30,6 +31,10 @@ const CreditDetail = () => {
 
 	const personName = detailsPerson?.name
 	const personBiography = detailsPerson?.biography
+
+	if (personError) {
+		return <PageNotFound />
+	}
 
 	if (!personBiography) {
 		return null

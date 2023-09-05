@@ -4,6 +4,7 @@ import { Card, Nav } from "react-bootstrap"
 import PaginationContainer from "../components/Pagination"
 import useGenreMoviesByPage from "../hooks/useGenreMoviesByPage"
 import useGenreMovies from "../hooks/useGenreMovies"
+import PageNotFound from "./PageNotFound"
 
 const MoviesByGenrePage = () => {
 	const location = useLocation()
@@ -11,7 +12,7 @@ const MoviesByGenrePage = () => {
 
 	const [currentPage, setCurrentPage] = useState(1)
 
-	const { data: pagesData } = useGenreMoviesByPage(
+	const { data: pagesData, isError: genreError } = useGenreMoviesByPage(
 		"discover/movie",
 		genreId,
 		currentPage,
@@ -37,10 +38,22 @@ const MoviesByGenrePage = () => {
 		}
 	}, [location.search])
 
+	if (genreError) {
+		return <PageNotFound />
+	}
+
+	if (!totalResults) {
+		return
+	}
+
 	return (
 		<div className="genre-card-container mb-5">
 			<h1 className="mt-5 mb-2">{genreTitle?.name}</h1>
-			<p>{totalResults} filmer väntar på dig</p>
+			{totalResults > 0 ? (
+				<p>{totalResults} filmer väntar på dig</p>
+			) : (
+				<p>Det finns inga filmer att visa</p>
+			)}
 
 			<div className="genre-card-wrapper">
 				{moviesAccordingToGenre?.map((movie) => (
@@ -48,15 +61,20 @@ const MoviesByGenrePage = () => {
 						<Nav.Link as={NavLink} to={`/film-detaljer/${movie.id}`}>
 							<Card.Img
 								variant="top"
-								src={`https://image.tmdb.org/t/p/w200${movie.poster_path}?language=se-SV&include_image_language=se,null`}
+								src={
+									movie.poster_path
+										? `https://image.tmdb.org/t/p/w200${movie.poster_path}?language=se-SV&include_image_language=se,null`
+										: "../../images/movie_placeholder.png"
+								}
 								alt={movie.title}
-								className="card-image"
+								className="card-image img-not-found"
 							/>
 						</Nav.Link>
+						<p className="movie-title">{movie.title}</p>
 					</Card>
 				))}
 			</div>
-			<PaginationContainer totalPages={totalPages} />
+			{totalResults > 0 && <PaginationContainer totalPages={totalPages} />}
 		</div>
 	)
 }

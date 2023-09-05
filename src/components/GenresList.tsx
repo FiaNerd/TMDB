@@ -7,7 +7,7 @@ const Genres = () => {
 	const { data: genresMovies, isError: genreError } = useGenreMovies()
 
 	if (genreError) {
-		return <p>Error</p>
+		return <p>Can't get genre</p>
 	}
 	return (
 		<>

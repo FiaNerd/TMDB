@@ -8,7 +8,7 @@ const CreditsAvatar = () => {
 	const { data: details, isError: errorCredits } = useMovieDetail(castId)
 
 	if (errorCredits) {
-		return <p>Error</p>
+		return <h3>Could not find any persons for this movie</h3>
 	}
 
 	return (
@@ -26,7 +26,11 @@ const CreditsAvatar = () => {
 											to={`/medverkande/${credit.id}`}
 										>
 											<Image
-												src={`https://image.tmdb.org/t/p/w200${credit.profile_path}?language=se-SV&include_image_language=se,null`}
+												src={
+													credit.profile_path
+														? `https://image.tmdb.org/t/p/w200${credit.profile_path}?language=se-SV&include_image_language=se,null`
+														: "../../images/avatar_profile_placeholder.png"
+												}
 												alt={credit.name}
 												className="img-profile-avatar"
 											/>

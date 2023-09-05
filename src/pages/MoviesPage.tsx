@@ -3,6 +3,7 @@ import MoviesList from "../components/MoviesList"
 import useCurrentMovies from "../hooks/useCurrentMovies"
 import usePopularMovies from "../hooks/usePopularMovies"
 import useTopMovies from "../hooks/useTopMovies"
+import PageNotFound from "./PageNotFound"
 
 const MoviesPage = () => {
 	const { category } = useParams()
@@ -35,7 +36,7 @@ const MoviesPage = () => {
 	}
 
 	if (!movieData) {
-		return <p>Error</p>
+		return <PageNotFound />
 	}
 
 	return (

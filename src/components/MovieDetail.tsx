@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar } from "@fortawesome/free-solid-svg-icons"
 import useMovieDetail from "../hooks/useMovieDetail"
 import CreditAvatar from "./CreditsAvatar"
+import PageNotFound from "../pages/PageNotFound"
 
 const MovieDetail = () => {
 	const [readMore, setReadMore] = useState(false)
@@ -43,7 +44,7 @@ const MovieDetail = () => {
 		: "N/A"
 
 	if (detailsError) {
-		return <p>Error</p>
+		return <PageNotFound />
 	}
 
 	if (!movieOverview) {
@@ -55,7 +56,10 @@ const MovieDetail = () => {
 			<div className="bg-detail-container">
 				<div
 					style={{
-						backgroundImage: `url("https://image.tmdb.org/t/p/w500${details?.backdrop_path}?language=se-SV&include_image_language=se,null")`,
+						backgroundImage: details.backdrop_path
+							? `url("https://image.tmdb.org/t/p/w500${details.backdrop_path}?language=se-SV&include_image_language=se,null")`
+							: 'url("../../images/backdrop_img_placeholder.png")',
+
 						backgroundSize: "cover",
 						width: "100%",
 						height: "100%",
@@ -99,7 +103,11 @@ const MovieDetail = () => {
 
 			<div className="detail-container mb-5">
 				<Image
-					src={`https://image.tmdb.org/t/p/w200${details?.poster_path}?language=se-SV&include_image_language=se,null`}
+					src={
+						details.poster_path
+							? `https://image.tmdb.org/t/p/w200${details?.poster_path}?language=se-SV&include_image_language=se,null`
+							: "../../images/movie_placeholder.png"
+					}
 					alt={details?.title}
 					className="image-detail"
 				/>

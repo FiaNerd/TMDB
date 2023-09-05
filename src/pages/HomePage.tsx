@@ -4,6 +4,7 @@ import Hero from "../components/Hero"
 import useCurrentMovies from "../hooks/useCurrentMovies"
 import usePopularMovies from "../hooks/usePopularMovies"
 import useTopMovies from "../hooks/useTopMovies"
+import PageNotFound from "./PageNotFound"
 
 const HomePage = () => {
 	const { data: currentCinemaMovies, isError: currentCinemaError } =
@@ -15,7 +16,7 @@ const HomePage = () => {
 	const { data: topMovies, isError: topMoviesError } = useTopMovies()
 
 	if (currentCinemaError || popularMoviesError || topMoviesError) {
-		return <p>Error</p>
+		return <PageNotFound />
 	}
 
 	if (!currentCinemaMovies || !popularMovies || !topMovies) {
