@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 interface IProps {
 	totalPages: number
 }
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 export const Pagination = ({ totalPages }: IProps) => {
 	const [page, setPage] = useState(1)
 	const location = useLocation()

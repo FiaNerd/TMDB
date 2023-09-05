@@ -1,4 +1,5 @@
 import { Button } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 const Hero = () => {
 	return (
@@ -11,13 +12,14 @@ const Hero = () => {
 							Vare sig du älskar thriller, action eller romantik - en film
 							väntar just på dig
 						</h4>
-
-						<Button
-							variant="outline-light"
-							className="btn-color-custom btn-lg mb-5"
-						>
-							HITTA DIN FILM
-						</Button>
+						<Link to="/filmer/top">
+							<Button
+								variant="outline-light"
+								className="btn-color-custom btn-lg mb-5"
+							>
+								HITTA TOP FILMER
+							</Button>
+						</Link>
 					</div>
 				</div>
 			</div>

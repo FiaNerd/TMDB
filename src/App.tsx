@@ -7,10 +7,10 @@ import Footer from "./pages/partial/Footer"
 import LoadingSpinner from "./components/LoadingSpinner"
 import PageNotFound from "./pages/PageNotFound"
 import MoviesByGenrerPage from "./pages/MoviesByGenrerPage"
-import "./assets/App.scss"
 import MoviesPage from "./pages/MoviesPage"
 import DetailsPage from "./pages/DetailPage"
 import CreditDetailPage from "./pages/CreditDetailPage"
+import "./assets/App.scss"
 
 const App = () => {
 	return (

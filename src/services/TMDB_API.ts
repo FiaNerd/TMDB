@@ -63,9 +63,8 @@ export const getGenreMoviesByPage = (
 		return instance.get<ResultMovies>(
 			`${BASE_URL}/${resource}?include_adult=false&include_video=false&language=se-SV&page=${page}&region=SE&sort_by=popularity.desc&with_genres=${genre_id}`,
 		)
-	} catch (error) {
-		console.log("Axios error:", error)
-		throw error
+	} catch (err) {
+		throw new Error("An error occurred")
 	}
 }
 

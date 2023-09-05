@@ -25,7 +25,6 @@ const MoviesList = ({ movies }: IProps) => {
 					</Card>
 				))}
 			</div>
-			{/* <PaginationContainer totalPages={totalPages} /> */}
 		</div>
 	)
 }

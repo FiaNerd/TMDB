@@ -8,6 +8,7 @@ import useGenreMovies from "../hooks/useGenreMovies"
 const MoviesByGenrePage = () => {
 	const location = useLocation()
 	const genreId = Number(useParams().id)
+
 	const [currentPage, setCurrentPage] = useState(1)
 
 	const { data: pagesData } = useGenreMoviesByPage(

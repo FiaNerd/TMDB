@@ -1,4 +1,5 @@
 import { Button } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 const Footer = () => {
 	return (
@@ -16,7 +17,9 @@ const Footer = () => {
 					</p>
 				</div>
 			</div>
-			<Button className="btn-footer">ENJOY A MOVIE</Button>
+			<Link to="/filmer/popular">
+				<Button className="btn-footer">POPULAR MOVIES</Button>
+			</Link>
 			<div className="footer-copy">
 				<p className="text-copy">&copy; 2023 TMDB | All Rights Reserved.</p>
 			</div>
